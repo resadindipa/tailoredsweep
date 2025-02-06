@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step by Step Guide</title>
+    <style>
+        .hidden .details {
+            display: none;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .details {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="step" id="step1">
+        <h2>Step 1</h2>
+        <div class="details">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut
+                iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet
+                totam eaque voluptas rem, iure iste consectetur ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur
+                velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet totam eaque voluptas rem, iure iste consectetur
+                ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi
+            </p>
+        </div>
+    </div>
+    <div class="step hidden" id="step2">
+        <h2>Step 2</h2>
+        <div class="details">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequLorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur
+                corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi
+                modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet totam eaque voluptas rem, iure iste consectetur ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae
+                nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam
+                distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui
+            </p>
+        </div>
+    </div>
+    <div class="step hidden" id="step3">
+        <h2>Step 3</h2>
+        <div class="details">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut
+                iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur
+                corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi
+                modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet totam eaque voluptas rem, iure iste consectetur ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae
+                nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam
+                distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui
+            </p>
+        </div>
+    </div>
+    <!-- Add more steps as needed -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var steps = $('.section-step-item');
+            var currentStep = 0;
+
+            function checkSteps() {
+                var scrollPosition = $(window).scrollTop();
+                var windowHeight = $(window).height();
+
+                steps.each(function(index) {
+                    var stepOffsetTop = $(this).offset().top;
+                    var stepOffsetBottom = stepOffsetTop + $(this).outerHeight();
+
+                    var offsetValue = 1000;
+                    if (scrollPosition + windowHeight > stepOffsetTop + offsetValue) { // Revealing steps when they enter viewport
+                        if (index > currentStep) {
+                            $(this).removeClass('section-step-item-hidden');
+                            currentStep = index;
+                        }
+                    } else if (scrollPosition + windowHeight <= stepOffsetTop + offsetValue) { // Hiding steps when they leave viewport
+                        if (index <= currentStep) {
+                            $(this).addClass('section-step-item-hidden');
+                            currentStep = index - 1;
+                        }
+                    }
+                });
+            }
+
+            $(window).on('scroll', checkSteps);
+            checkSteps(); // Initial check to reveal the first step
+        });
+    </script>
+
+</body>
+
+</html>

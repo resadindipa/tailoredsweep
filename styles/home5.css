@@ -1,0 +1,368 @@
+@media only screen and (max-width: 1100px) and (min-width:768px) {
+    .projects-item-desc-btn {
+        display: none;
+    }
+    .projects-item-desc-text {
+        width: auto;
+    }
+    .projects-item-desc {
+        padding: 1.3vw;
+    }
+    .projects-item-img {
+        height: 17vw;
+    }
+}
+
+@media only screen and (max-width: 1024px) {}
+
+@media only screen and (min-width: 992px) {
+    .contact-section-form-div {
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .section-tab-side-comp-img {
+        width: 100%;
+        float: none;
+        max-width: none;
+    }
+    .contact-section-form-div {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+    .contact-section-form .section-desc {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .main-section {
+        padding: 0 20px;
+    }
+    /* projects we've done */
+    .projects-item-desc {
+        padding: 2.1vw;
+    }
+    .projects-item-desc-text h4 {
+        margin-bottom: 1vw;
+    }
+    /* contact forum */
+    .contact-text-form {
+        text-align: center;
+    }
+    .contact-section-form {
+        text-align: center;
+    }
+    .contact-section-form-div {
+        padding: 0;
+        float: none;
+        border: none;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+    .contact-text-submit {
+        border-radius: 1vw;
+        padding: 3vw;
+    }
+    .contact-text-form,
+    .contact-text-input,
+    .contact-text-field {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    /* website's general layout */
+    .main-section {
+        padding: 0 3vw;
+    }
+    .footer-main {
+        padding: 6vw 3vw;
+    }
+    /* header section */
+    .main-section .main-section-title {
+        font-size: 5vw;
+        margin-top: 2vw;
+    }
+    /* before vs after image comparison */
+    .section-item-side-comp-img-item-left {
+        margin-bottom: 10px;
+    }
+    .section-item-side-comp-img-item img {
+        width: 100%;
+        margin: 0;
+    }
+    /* normal section's heading,title,button and desc */
+    .section-title {
+        font-size: 4.5vw;
+        margin-top: 1.5vw;
+    }
+    .section-title-inline {
+        display: block;
+        width: 100%!important;
+    }
+    .section-heading {
+        font-size: 3.5vw;
+    }
+    .main-section #main-section-btn,
+    .section-mid-item-btn {
+        font-size: 3vw;
+        padding: 3vw 8vw;
+    }
+    .section-desc {
+        font-size: 3.7vw;
+        line-height: 6vw;
+    }
+    /* numbered item cell */
+    .num-item-cell-top-sec .num-item-cell-top-sec-number {
+        font-size: 9vw;
+    }
+    .num-item-cell .num-item-cell-title {
+        font-size: 4.6vw;
+    }
+    .num-item-cell .num-item-cell-desc {
+        font-size: 3.6vw;
+        line-height: 6.5vw;
+    }
+    .num-item-cell {
+        padding: 1.5vw 0;
+    }
+    .num-item-cell .num-item-cell-div {
+        padding: 3.9vw 3.2vw;
+    }
+    .osc-btn {
+        height: fit-content;
+    }
+    .osc-btn-container {
+        width: 11vw;
+        height: 11vw;
+    }
+    /* full width container */
+    div#full-width-container {
+        padding: 15vw 0;
+    }
+    h2.full-width-container-title {
+        font-size: 4.2vw;
+        text-align: center;
+    }
+    button.section-mid-item-btn {
+        margin-top: 7vw;
+    }
+    /* carousels in general */
+    .carousel {
+        margin-top: 3vw;
+    }
+    /* projects we've done */
+    .car-control-btns {
+        display: block!important;
+        float: none!important;
+    }
+    #carouselExampleIndicators3 .carousel-item .num-item-cell .num-item-cell-div {
+        padding: 0;
+    }
+    .projects-item-img {
+        height: 50vw;
+    }
+    .projects-item-desc-text h4 {
+        font-size: 3.8vw;
+        margin: 0;
+        font-weight: 600;
+        margin-bottom: 1vw;
+    }
+    .projects-item-desc {
+        padding: 3.5vw;
+    }
+    .main-section .projects-item-desc-text p {
+        font-size: 3.3vw;
+    }
+    /* reviews */
+    .review-profile-pic {
+        width: 10vw;
+        height: 10vw;
+    }
+    .num-item-cell-div .reviews-desc {
+        font-size: 3.4vw;
+        line-height: 6vw;
+    }
+    .review-profile-name p {
+        font-size: 3.2vw !important;
+    }
+    .review-profile-name h4 {
+        font-weight: 600;
+        font-size: 3.4vw;
+        margin-bottom: 0.5vw;
+    }
+    /* frequently asked questions */
+    .faq-item {
+        margin-bottom: 2vw;
+    }
+    .faq-item-width {
+        padding: 0;
+    }
+    .faq-item-content {
+        border-radius: 0!important;
+        padding: 1vw 3vw;
+    }
+    .faq-item .faq-item-quest,
+    .faq-item .faq-item-answer {
+        font-size: 3.6vw;
+        line-height: 6vw;
+    }
+    .faq-item-arrow {
+        width: 3.5vw;
+        height: 3.5vw;
+        background-color: transparent!important;
+    }
+    .faq-item img {
+        width: 3.4vw;
+        top: 0;
+    }
+    /* contact us section */
+    /* contact methods items - main and normal */
+    .contact-method-item {
+        padding: 3vw 0;
+        margin: 0;
+    }
+    /* main contact method */
+    .contact-method-main-icon img,
+    .contact-method-icon img {
+        width: 5vw !important;
+        height: 5vw !important;
+    }
+    .contact-section-form h3.section-title {
+        font-size: 4.6vw;
+        width: 100%;
+        margin-top: 2vw;
+    }
+    .contact-method-icon {
+        width: 12vw;
+        height: 12vw;
+    }
+    .contact-method-main-desc h2 {
+        font-size: 5vw;
+    }
+    /* normal contact method */
+    .contact-method-desc p {
+        font-size: 3.2vw;
+    }
+    .contact-method-desc h4 {
+        margin-bottom: 0.4vw;
+        font-size: 3.4vw;
+    }
+    /* contact forum inputs */
+    .contact-text-input {
+        padding: 3vw 4vw;
+        font-size: 3.1vw;
+        margin-bottom: 3vw;
+        border-radius: 1vw;
+    }
+    /* footer */
+    .footer-social-media {
+        float: left;
+        margin-top: 20px;
+    }
+    .ventoras-tagline,
+    .footer-social-media-title {
+        font-size: 3.7vw;
+        line-height: 6vw;
+    }
+    .footer-social-media img {
+        width: 4.5vw;
+        margin: 0 1vw;
+    }
+    .footer-social-media-title,
+    .social-media-icons {
+        text-align: left;
+    }
+    .footer-copyright {
+        display: none;
+    }
+    .made-in-sl p {
+        color: white;
+        /* font-size: 17px; */
+    }
+    .made-in-sl {
+        margin-top: 15px;
+        /* text-align: center; */
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .main-section {
+        padding: 0 3vw;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 576px) {
+    /* general section's heading,title and desc */
+    /* .section-title {
+        font-size: 19px;
+    }
+    .section-heading {
+        font-size: 14px;
+    }
+    .section-desc {
+        font-size: 15px;
+    } */
+    /* projects we've done */
+    .projects-item-desc-btn {
+        display: none;
+    }
+    /* before vs after image comparison */
+    .section-tab-side-comp-img {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 576px) and (min-width: 425px) {
+    /* general section's heading,title and desc */
+    /* .section-title {
+        font-size: 18px;
+    }
+    .section-heading {
+        font-size: 13px;
+    }
+    .section-desc {
+        font-size: 14px;
+    }
+     */
+    /* before vs after image comparison */
+    .section-item-side-comp-img-item img {
+        width: 100%;
+        margin: 0;
+    }
+    .section-tab-side-comp-img {
+        margin-top: 20px;
+    }
+}
+
+
+/* NAVBAR START - removing the "Services","Reviews","FAQ" items */
+
+@media only screen and (max-width: 992px) and (min-width: 740px) {
+    .nav-bar-left>p:nth-of-type(-n+3) {
+        display: none;
+    }
+    .nav-bar img {
+        width: 190px;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    #nav-bar-toggle {
+        display: block;
+    }
+    .nav-bar-left {
+        display: none;
+    }
+    .nav-bar img {
+        width: 190px;
+    }
+}
+
+
+/* NAVBAR END - removing the "Services","Reviews","FAQ" items */

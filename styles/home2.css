@@ -1,0 +1,54 @@
+@media only screen and (max-width: 1440px) and (min-width: 1024px) {}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) {}
+
+@media only screen and (max-width: 768px) and (min-width: 576px) {}
+
+@media only screen and (max-width: 576px) and (min-width: 425px) {}
+
+@media only screen and (max-width: 425px) and (min-width: 375px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (min-width: 1024px) {}
+
+@media only screen and (max-width: 992px) {
+    .nav-bar-left p#nav-bar-contact-us {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {}
+
+@media only screen and (max-width: 425px) {}
+
+@media only screen and (max-width: 375px) {}
+
+
+/* NAVBAR START - removing the "Services","Reviews","FAQ" items */
+
+@media only screen and (max-width: 992px) and (min-width: 740px) {
+    .nav-bar-left>p:nth-of-type(-n+3) {
+        display: none;
+    }
+    .nav-bar img {
+        width: 190px;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    #nav-bar-toggle {
+        display: block;
+    }
+    .nav-bar-left {
+        display: none;
+    }
+    .nav-bar img {
+        width: 190px;
+    }
+}
+
+
+/* NAVBAR END - removing the "Services","Reviews","FAQ" items */

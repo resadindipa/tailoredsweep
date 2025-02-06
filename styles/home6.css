@@ -1,0 +1,38 @@
+.num-item-cell-img {
+    width: 100%;
+    height: 100%;
+    background: #D9D9D9;
+    display: inline-block;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.num-item-cell-desc-cont {
+    display: inline-block;
+    padding: 0 30px;
+}
+
+.num-item-cell .num-item-cell-title {
+    margin-top: 0;
+}
+
+.num-item-cell .num-item-cell-desc {
+    /* margin-bottom: ; */
+}
+
+.num-item-cell-img img {
+    width: 40%;
+}
+
+
+/* .pad-right-none {
+    padding-right: 0!important;
+}
+
+.pad-left-none {
+    padding-left: 0!important;
+} */
+
+.contact-section-form {
+    padding: 0 15px!important;
+}

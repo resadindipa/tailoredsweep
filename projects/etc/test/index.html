@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            padding: 0!important;
+            margin: 0!important;
+        }
+        
+        .dot {
+            width: 3px;
+            height: 3px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 100%;
+        }
+        
+        #canvas {
+            width: 600px;
+            height: 600px;
+            background-color: #ababab;
+            border: 1px solid black;
+            /* margin: 0 auto; */
+        }
+        
+        .container {
+            /* text-align: center; */
+        }
+    </style>
+    <div class="container">
+        <div id="canvas"></div>
+    </div>
+    <button id="regen">Regenerate</button>
+    <script>
+        document.getElementById('regen').addEventListener('click', function() {
+            document.querySelectorAll('.dot').forEach(element => {
+                element.remove();
+            });
+            generateDots();
+        });
+
+        generateDots();
+
+        function generateDots() {
+            let numberOfDots = 50;
+            let numberOfPixelsForSide = 300;
+            let canvas = document.getElementById('canvas');
+            canvas.setAttribute('style', `width: ${numberOfPixelsForSide}px; height: ${numberOfPixelsForSide}px`);
+
+            for (let index = 0; index < numberOfDots; index++) {
+                let randomNumber = Math.floor((Math.random() * numberOfPixelsForSide) - 1);
+                let randomNumber2 = Math.floor((Math.random() * numberOfPixelsForSide) - 1);
+                const randomDiv = document.createElement('DIV');
+                randomDiv.className = 'dot'
+                randomDiv.setAttribute('style', `position:absolute; top:${randomNumber}px; left:${randomNumber2}px;`);
+
+
+                const mainDiv = document.querySelector('#canvas');
+                mainDiv.appendChild(randomDiv);
+            }
+        }
+
+        // setInterval(function() {
+        //     document.getElementById('regen').click();
+        // }, 100);
+    </script>
+</body>
+
+</html>
