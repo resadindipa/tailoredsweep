@@ -493,14 +493,23 @@ div#indipa {
 
 .num-item-cell .num-item-cell-div {
     border: 1px solid #40445242;
+    border-radius: 5px;
     padding: 20px;
     height: 100%;
+}
+
+.why-choose-us-section-table .num-item-cell .num-item-cell-div {
+    padding: 1.8vw;
 }
 
 .num-item-cell .num-item-cell-title {
     color: #404452;
     font-size: 18px;
     font-weight: 700;
+}
+
+.num-item-cell-desc-container {
+    padding: 0 15px;
 }
 
 .num-item-cell .num-item-cell-desc {
@@ -512,6 +521,10 @@ div#indipa {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.why-choose-us-section-table .num-item-cell-top-sec {
+    display: none;
 }
 
 .num-item-cell-top-sec .num-item-cell-top-sec-number {
@@ -575,7 +588,7 @@ div#indipa {
 .full-width-container-title {
     color: white;
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .full-width-container-btn {
@@ -675,10 +688,13 @@ div#indipa {
     margin-top: 4px;
 }
 
+#projects-section-item .projects-item-desc-btn {
+    margin: 10px;
+}
+
 .projects-item-desc-btn {
     width: 45px;
     height: 45px;
-    margin: 10px;
 }
 
 
@@ -883,9 +899,10 @@ div#indipa {
 }
 
 .contact-text-submit {
-    background-color: #8bc646;
+    background-color: var(--light-blue);
     color: white;
     font-family: "Sora", sans-serif;
+    transition-duration: 0.3s;
     padding: 15px 25px;
     border: none;
     border-radius: 10px;
@@ -908,6 +925,7 @@ div#indipa {
 .contact-text-submit:hover {
     cursor: pointer;
     font-weight: 500;
+    background-color: var(--dark-blue);
 }
 
 
@@ -940,7 +958,7 @@ div#indipa {
 
 .contact-method-main h3 {
     display: inline-block;
-    font-size: 1.3vw;
+    /* font-size: 1.3vw; */
     margin-left: 25px;
     margin-right: 25px;
 }
@@ -1018,8 +1036,8 @@ div#indipa {
 }
 
 .hrr-red {
-    height: 7px!important;
-    background-color: #8bc646!important;
+    height: 4px!important;
+    background-color: var(--light-blue)!important;
     opacity: 100%!important;
 }
 

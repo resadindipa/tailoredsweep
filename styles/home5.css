@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1100px) and (min-width:768px) {
     .projects-item-desc-btn {
-        display: none;
+        /* display: none; */
     }
     .projects-item-desc-text {
         width: auto;
@@ -9,7 +9,7 @@
         padding: 1.3vw;
     }
     .projects-item-img {
-        height: 17vw;
+        height: 19vw;
     }
 }
 
@@ -22,6 +22,16 @@
 }
 
 @media only screen and (max-width: 992px) {
+    /* main section */
+    #main-section-text-container {
+        text-align: center;
+    }
+    #main-img-col {
+        align-items: center;
+    }
+    #header-section-item .main-section {
+        margin-top: 9vw;
+    }
     .section-tab-side-comp-img {
         width: 100%;
         float: none;
@@ -36,12 +46,37 @@
     .contact-section-form .section-desc {
         margin: 0;
     }
+    /* num item cell */
+    /* converts the num item cell from picture with side desc to no picture only desc with numbered cell */
+    .num-item-cell-img {
+        display: none!important;
+    }
+    .num-item-cell-top-sec {
+        display: flex!important;
+    }
+    .num-item-cell .num-item-cell-title {
+        margin-top: revert!important;
+    }
+    .num-item-cell-desc-container {
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .main-section {
         padding: 0 20px;
     }
+    /* num item cell */
+    /* converts the num item cell from picture with side desc to no picture only desc with numbered cell */
+    /* .num-item-cell-img {
+        display: none!important;
+    }
+    .num-item-cell-top-sec {
+        display: flex!important;
+    }
+    .num-item-cell .num-item-cell-title {
+        margin-top: revert!important;
+    } */
     /* projects we've done */
     .projects-item-desc {
         padding: 2.1vw;
@@ -129,15 +164,16 @@
         line-height: 6.5vw;
     }
     .num-item-cell {
-        padding: 1.5vw 0;
+        padding: 1.5vw 0!important;
     }
     .num-item-cell .num-item-cell-div {
-        padding: 3.9vw 3.2vw;
+        padding: 3.9vw 3.2vw!important;
     }
     .osc-btn {
         height: fit-content;
     }
-    .osc-btn-container {
+    .osc-btn-container,
+    .car-control-btn {
         width: 11vw;
         height: 11vw;
     }
@@ -162,7 +198,7 @@
         float: none!important;
     }
     #carouselExampleIndicators3 .carousel-item .num-item-cell .num-item-cell-div {
-        padding: 0;
+        padding: 0!important;
     }
     .projects-item-img {
         height: 50vw;
@@ -225,13 +261,20 @@
     /* contact methods items - main and normal */
     .contact-method-item {
         padding: 3vw 0;
+        width: 100%;
         margin: 0;
     }
     /* main contact method */
-    .contact-method-main-icon img,
+    .contact-method-main-icon-img {
+        width: 6vw !important;
+        height: 6vw !important;
+    }
     .contact-method-icon img {
         width: 5vw !important;
         height: 5vw !important;
+    }
+    .contact-method-main .osc-btn-container {
+        margin: revert!important;
     }
     .contact-section-form h3.section-title {
         font-size: 4.6vw;
