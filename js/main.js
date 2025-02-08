@@ -168,16 +168,16 @@ $(document).ready(function() {
 
 
         let name = $('#name').val()
-        let email = $('#email').val()
+        let phonenumber = $('#phonenumber').val()
         let message = $('#message').val()
 
-        if (name == "" || email == "" || message == "") {
+        if (name == "" || phonenumber == "" || message == "") {
             $('#form-error').text('- Complete all the fields');
             $('#form-error').show();
             if (name == "") {
                 $('#name').focus();
-            } else if (email == "") {
-                $('#email').focus();
+            } else if (phonenumber == "") {
+                $('#phonenumber').focus();
             } else {
                 $('#message').focus();
             }
@@ -185,7 +185,7 @@ $(document).ready(function() {
 
             $.post("https://www.ventoras.com/form/submit.php", {
                     name: name,
-                    email: email,
+                    phonenumber: phonenumber,
                     message: message
                 },
                 function(data, status) {
