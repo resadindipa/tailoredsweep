@@ -182,24 +182,21 @@ $(document).ready(function() {
                 $('#message').focus();
             }
         } else {
-            if (IsEmail(email) == false) {
-                $('#form-error').show();
-                $('#form-error').text("- Enter an valid email");
-            } else {
-                $.post("https://www.ventoras.com/form/submit.php", {
-                        name: name,
-                        email: email,
-                        message: message
-                    },
-                    function(data, status) {
-                        console.log("Data: " + data + "\nStatus: " + status);
-                        if (data == "success") {
-                            $('#form-error').hide();
-                            $('.contact-text-form').hide();
-                            $('#contact-section-success').show();
-                        }
-                    });
-            }
+
+            $.post("https://www.ventoras.com/form/submit.php", {
+                    name: name,
+                    email: email,
+                    message: message
+                },
+                function(data, status) {
+                    console.log("Data: " + data + "\nStatus: " + status);
+                    if (data == "success") {
+                        $('#form-error').hide();
+                        $('.contact-text-form').hide();
+                        $('#contact-section-success').show();
+                    }
+                });
+
 
         }
 
