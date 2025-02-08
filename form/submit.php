@@ -49,7 +49,7 @@ function sendEmail($name, $phonenumber, $message)
 
     $mail->addAddress($recipient_email);
     $mail->Subject = 'New Message Received';
-    $mail->Body = '<html>Name: '.$name.'<br>Phone number: '.$phonenumber.'<br>Message: '.$message.'</html>';
+    $mail->Body = '<html><b>Name:</b> '.$name.'<br><br><b>Phone number:</b> '.$phonenumber.'<br><br><b>Message:</b> '.$message.'</html>';
 
 
     $mail->SMTPOptions = array(
@@ -63,8 +63,8 @@ function sendEmail($name, $phonenumber, $message)
 
 
     if ($mail->send()) {
-        echo "Message has been sent successfully";
+        echo "success";
     } else {
-        echo "Mailer Error: " . $mail->ErrorInfo;
+        echo "error";
     }
 }

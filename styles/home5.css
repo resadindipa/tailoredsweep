@@ -276,6 +276,9 @@
     .contact-method-main .osc-btn-container {
         margin: revert!important;
     }
+    .contact-method-main h3 {
+        font-size: 4vw;
+    }
     .contact-section-form h3.section-title {
         font-size: 4.6vw;
         width: 100%;
@@ -312,6 +315,9 @@
     .footer-social-media-title {
         font-size: 3.7vw;
         line-height: 6vw;
+    }
+    .footer-logo {
+        width: 45vw;
     }
     .footer-social-media img {
         width: 4.5vw;
