@@ -1,45 +1,65 @@
 <?php
-// ini_set('display_errors', 0);
-ini_set('display_errors',1); // for the development PC only
-error_reporting(E_ALL); 
-// Check if the POST request contains the expected parameters
-if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
 
-    date_default_timezone_set("Asia/Colombo");
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
+
+// ini_set('display_errors', 0);
+ini_set('display_errors', 1); // for the development PC only
+error_reporting(E_ALL);
+// Check if the POST request contains the expected parameters
+if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'])) {
+
     // Sanitize and extract data
     $name = htmlspecialchars($_POST['name']);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phonenumber = htmlspecialchars($_POST['phonenumber']);
     $message = htmlspecialchars($_POST['message']);
-    
-    // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die('Invalid email format');
-    }
-    
-    // 43.225.54.244
-    // Create a timestamp for the message
-    $timestamp = date('Y-m-d H:i:s');
 
-    // Format the message data
-    $data = "Date/Time: $timestamp\n";
-    $data .= "Name: $name\n";
-    $data .= "Email: $email\n";
-    $data .= "Message:\n$message\n\n\n"; // Two newlines to separate messages
-
-    // Append data to messages.txt file
-    $filename = 'messages.txt';
-    $file = fopen($filename, 'a'); // Open file in append mode
-    if ($file) {
-        fwrite($file, $data); // Write data to the file
-        fclose($file); // Close the file
-        echo 'success';
-    } else {
-  
-        echo 'Unable to open file for writing.';
-    }
+    sendEmail($name, $phonenumber, $message);
 } else {
-    print_r($_POST);
-    print_r($_GET);
-    echo 'Missing one or more required parameters (name, email, message).';
+    echo 'Missing required parameters';
 }
-?>
+
+function sendEmail($name, $phonenumber, $message)
+{
+
+    $recipient_email = "mwresadindipa@gmail.com";
+    $mail = new PHPMailer();
+
+    $mail->isSMTP();
+    $mail->Host = "smtp.gmail.com";
+    $mail->SMTPAuth = true;
+    // $mail -> SMTPDebug= 3;
+    $mail->Username = 'ventoraswebdesign@gmail.com';
+    $mail->Password = 'yrkaawhnuazeeyyo';
+    //$mail ->SMTPSecure=PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = '587';
+    $mail->SMTPSecure = 'tls';
+    $mail->isHTML(true);
+
+    $mail->setFrom('ventoraswebdesign@gmail.com', 'Ventoras');
+
+    $mail->addAddress($recipient_email);
+    $mail->Subject = 'New Message Received';
+    $mail->Body = '<html>Name: '.$name.'<br>Phone number: '.$phonenumber.'<br>Message: '.$message.'</html>';
+
+
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+
+
+
+    if ($mail->send()) {
+        echo "Message has been sent successfully";
+    } else {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    }
+}

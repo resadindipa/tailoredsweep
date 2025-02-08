@@ -186,7 +186,7 @@ $(document).ready(function() {
                 $('#form-error').show();
                 $('#form-error').text("- Enter an valid email");
             } else {
-                $.post("form/submit.php", {
+                $.post("https://www.ventoras.com/form/submit.php", {
                         name: name,
                         email: email,
                         message: message
