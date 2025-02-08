@@ -169,6 +169,7 @@ $(document).ready(function() {
 
         let name = $('#name').val()
         let phonenumber = $('#phonenumber').val()
+        console.log([phonenumber])
         let message = $('#message').val()
 
         if (name == "" || phonenumber == "" || message == "") {
