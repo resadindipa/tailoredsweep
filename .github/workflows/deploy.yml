@@ -12,19 +12,20 @@ jobs:
 
     - name: Copy repository contents via scp
       uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
       with:
-        HOST: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USERNAME }}
-        PORT: ${{ secrets.SSH_PORT }}
-        KEY: ${{ secrets.SSH_KEY }}
         source: "."
-        target: "/var/www/html"
+        target: "/var/www/ventoras/tailoredsweep/"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USERNAME }}
-        PORT: ${{ secrets.SSH_PORT }}
-        KEY: ${{ secrets.SSH_KEY }}
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
         script: ls
