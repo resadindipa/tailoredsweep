@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
+//dsds
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) {
     $file = $_FILES['profile_picture'];
     $uploadDir = '../uploads/profile_pictures/';
@@ -8,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
     if (!file_exists($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
+
     
     $fileExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $allowedExts = ['jpg', 'jpeg', 'png'];
