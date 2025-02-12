@@ -18,7 +18,7 @@ jobs:
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_KEY }}
         source: "."
-        target: "/var/www/html"
+        target: "/var/www/ventoras/tailoredsweep"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
