@@ -31,7 +31,7 @@ if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'])) {
 function sendEmail($name, $phonenumber, $message)
 {
 
-    $recipient_email = "mwresadindipa@gmail.com";
+    $recipient_email = "tailoredsweepties@gmail.com";
     $mail = new PHPMailer();
 
     $mail->isSMTP();
@@ -45,10 +45,10 @@ function sendEmail($name, $phonenumber, $message)
     $mail->SMTPSecure = 'tls';
     $mail->isHTML(true);
 
-    $mail->setFrom('ventoraswebdesign@gmail.com', 'Ventoras');
+    $mail->setFrom('ventoraswebdesign@gmail.com', 'Ventoras Web Email');
 
     $mail->addAddress($recipient_email);
-    $mail->Subject = 'New Message Received';
+    $mail->Subject = 'New Message For Tailored Sweep Website';
     $mail->Body = '<html><b>Name:</b> '.$name.'<br><br><b>Phone number:</b> '.$phonenumber.'<br><br><b>Message:</b> '.$message.'</html>';
 
 
