@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 /* 
------BEGIN RSA PRIVATE KEY-----
+-----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAgEA5XFUpgWSijcaNczfAThLQk7OCgf0tZqTv1rUnFSZxndtAI1SLL3n
 zqU55qzuQEOS6Gnb7V5LFa/T8YcTAAMtzyBP6UuKliYnQ4tpuWUEl/87GKNhkxBADa1KNW
@@ -49,11 +49,11 @@ zaj2qq4iCQqvW8GxknuW5yFOgi23LoYBAArdnHyhKfzglI6yGAjj2lHGht8Cz1tRqjq5lP
 w3Zu/HQFGN6oF1ZoW0ORsQwYGfdyD4ZOIKU0FIrgqeXI/h4OHcbFdrfKSX6QkkJXMukwZx
 /t2JZR9knb2oWeoK/nVEWXgMhNVmzmNEi/BD6vx+4ZH4dzn4D1JwtU8spMfOmH1oVkER6M
 z/X9kkNYUWknAAAAFHJvb3RAMTQzLjE5OC4xNDguMTY4AQIDBAUG
------END RSA PRIVATE KEY-----
+-----END OPENSSH PRIVATE KEY-----
 
 
 */
-//ds
+
 //dsds
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) {
     $file = $_FILES['profile_picture'];
