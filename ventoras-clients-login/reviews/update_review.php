@@ -17,6 +17,7 @@ $review = $_POST['review'];
 $review_date = $_POST['review_date'];
 $profile_picture = "";
 
+//resad
 if (isset($_POST['profile_picture'])) {
     $profile_picture = $_POST['profile_picture'];
 }
