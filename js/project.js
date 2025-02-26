@@ -23,7 +23,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         async: true,
-        url: "http://localhost/tailoredsweep/ventoras-clients-login/projects/load_ind_project.php",
+        url: "https://www.ventoras.com/ventoras-clients-login/projects/load_ind_project.php",
         data: { id: id },
         // contentType: false,
         // processData: false,

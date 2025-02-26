@@ -182,8 +182,8 @@ $(document).ready(function() {
                 nextIndex = currentIndex + 1;
             }
 
-            container.find(".img-bna-1").css("background-image", `url('ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/1.jpg')`);
-            container.find(".img-bna-2").css("background-image", `url('ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/2.jpg')`);
+            container.find(".img-bna-1").css("background-image", `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/1.jpg')`);
+            container.find(".img-bna-2").css("background-image", `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/2.jpg')`);
 
             currentIndex = nextIndex;
         }
@@ -196,7 +196,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         async: false,
-        url: "ventoras-clients-login/reviews/load_reviews_client.php",
+        url: "https://www.ventoras.com/ventoras-clients-login/reviews/load_reviews_client.php",
         data: { page: "s" },
         success: function(data) {
             if (data.trim() !== "endofresults") {
@@ -211,7 +211,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         async: false,
-        url: "ventoras-clients-login/projects/load_projects_client.php",
+        url: "https://www.ventoras.com/ventoras-clients-login/projects/load_projects_client.php",
         data: { page: "s" },
         success: function(data) {
             if (data.trim() !== "endofresults") {
