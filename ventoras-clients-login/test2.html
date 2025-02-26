@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In/Out Image Pairs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 350px;
+        }
+        
+        .image-container img {
+            /* position: absolute; */
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            /* display: none; */
+            /* Hide all images initially */
+        }
+        
+        .img-con {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            transition-duration: 1.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <p id="total-pairs-number" data-total-pairs="2" style="display: none;"></p> -->
+    <!-- <div class="image-container" id="imageContainer"> -->
+    <div class="image-container" id="imageContainer1" data-total-pairs="2">
+        <div class="img-con img-con-1" style="background-image: url('uploads/beforeafter/tailoredsweep.com/1/1.jpg');"></div>
+        <div class="img-con img-con-2" style="background-image: url('uploads/beforeafter/tailoredsweep.com/1/2.jpg');"></div>
+        <!-- <div class="pair pair1">
+            <img src="uploads/beforeafter/tailoredsweep.com/1/1.jpg" class="pair1 img1" style="display: block;">
+            <img src="uploads/beforeafter/tailoredsweep.com/1/2.jpg" class="pair1 img2" style="display: block;">
+        </div> -->
+    </div>
+
+    <div class="image-container" id="imageContainer2" data-total-pairs="2">
+        <div class="img-con img-con-1" style="background-image: url('uploads/beforeafter/tailoredsweep.com/2/1.jpg');"></div>
+        <div class="img-con img-con-2" style="background-image: url('uploads/beforeafter/tailoredsweep.com/2/2.jpg');"></div>
+        <!-- <div class="pair pair1">
+            <img src="uploads/beforeafter/tailoredsweep.com/1/1.jpg" class="pair1 img1" style="display: block;">
+            <img src="uploads/beforeafter/tailoredsweep.com/1/2.jpg" class="pair1 img2" style="display: block;">
+        </div> -->
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            let totalPairs = parseInt($("#imageContainer").data("total-pairs")); // Change this to modify the number of pairs
+            let BnASectionNumber = 1; //This is the only image-container div, if there's a second one, for it to work, this value should be = 2
+            if (isNaN(totalPairs)) {
+                totalPairs = 1;
+            }
+            let currentIndex = 1; // Track which pair is active
+
+            function switchImages() {
+                let nextIndex;
+
+                // Determine the next index using if/else
+                if (currentIndex >= totalPairs) {
+                    nextIndex = 1; // Reset to 1 if at the last pair
+                } else {
+                    nextIndex = currentIndex + 1; // Otherwise, just increment
+                }
+
+                // Update background images of the two divs
+                $(".img-con-1").css("background-image", `url('uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/1.jpg')`);
+                $(".img-con-2").css("background-image", `url('uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/2.jpg')`);
+
+                // Update currentIndex
+                currentIndex = nextIndex;
+            }
+
+            // Run the switch function every 3 seconds
+            setInterval(switchImages, 3000);
+        });
+    </script>
+
+</body>
+
+</html>

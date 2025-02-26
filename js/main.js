@@ -117,6 +117,112 @@ $(document).ready(function() {
         // }, 0);
     }
 
+    $(document).on("click", ".review-view-more", function() {
+        // console.log($(this).closest(".limited-text").data("full-review"));
+        showPopup("success", $(this).closest(".limited-text").data("full-review"), false);
+    });
+
+
+    function showPopup(type, message, redirectionToHome = false) {
+        let popupClass, btnClass;
+
+        if (type === "success") {
+            popupClass = "alert-success";
+            btnClass = "btn-secondary";
+        } else {
+            popupClass = "alert-danger";
+            btnClass = "btn-danger";
+        }
+
+        // Create overlay and popup HTML
+        let popupHtml = `
+        <div id="popupOverlay">
+            <div id="popupMessage" class="${popupClass}">
+                <p>${message}</p>
+                <button id="closePopup" class="btn ${btnClass}">Cancel</button>
+            </div>
+        </div>
+    `;
+
+        // Append to body
+        $("body").append(popupHtml);
+
+        // Close popup when "Cancel" is clicked
+        $("#closePopup").click(function() {
+            $("#popupOverlay").remove();
+            if (redirectionToHome) {
+                window.location.href = "index.php";
+            }
+        });
+
+        // Close popup when clicking on overlay background (not the popup itself)
+        $("#popupOverlay").click(function(e) {
+            if (e.target.id === "popupOverlay") {
+                $("#popupOverlay").remove();
+                if (redirectionToHome) {
+                    window.location.href = "index.php";
+                }
+            }
+        });
+    }
+
+    // $(document).ready(function() {
+    $('.img-bna-div-container').each(function(index) {
+        let container = $(this);
+        let totalPairs = parseInt(container.data("total-pairs")) || 1;
+        let BnASectionNumber = index + 1; // Assign section number by order
+        let currentIndex = 1;
+
+        function switchImages() {
+            // console.log("switchingimages", container);
+            let nextIndex;
+            if (currentIndex >= totalPairs) {
+                nextIndex = 1;
+            } else {
+                nextIndex = currentIndex + 1;
+            }
+
+            container.find(".img-bna-1").css("background-image", `url('ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/1.jpg')`);
+            container.find(".img-bna-2").css("background-image", `url('ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/2.jpg')`);
+
+            currentIndex = nextIndex;
+        }
+
+        switchImages(); // Initialize with first images
+        setInterval(switchImages, 3000);
+    });
+    // });
+
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "ventoras-clients-login/reviews/load_reviews_client.php",
+        data: { page: "s" },
+        success: function(data) {
+            if (data.trim() !== "endofresults") {
+                $("#reviews-carousel-inner").append(data);
+            } else {
+                console.log("Something Happened", data);
+                // $("#load-more").hide();
+            }
+        }
+    });
+
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "ventoras-clients-login/projects/load_projects_client.php",
+        data: { page: "s" },
+        success: function(data) {
+            if (data.trim() !== "endofresults") {
+                $("#projects-carousel-inner").append(data);
+            } else {
+                console.log("Something Happened", data);
+                // $("#load-more").hide();
+            }
+        }
+    });
+
     // Attach click event to all parent-div elements
     $('.parent-div').click(function() {
         // Get the data-target attribute value (child div ID)

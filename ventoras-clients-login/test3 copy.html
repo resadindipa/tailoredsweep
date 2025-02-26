@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In/Out Image Pairs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 350px;
+        }
+        
+        .img-con {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            transition-duration: 1.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container" data-total-pairs="3">
+        <div class="img-con img-con-1"></div>
+        <div class="img-con img-con-2"></div>
+    </div>
+    
+    <div class="image-container" data-total-pairs="3">
+        <div class="img-con img-con-1"></div>
+        <div class="img-con img-con-2"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.image-container').each(function(index) {
+                let container = $(this);
+                let totalPairs = parseInt(container.data("total-pairs")) || 1;
+                let BnASectionNumber = index + 1; // Assign section number by order
+                let currentIndex = 1;
+                
+                function switchImages() {
+                    let nextIndex;
+                    if (currentIndex >= totalPairs) {
+                        nextIndex = 1;
+                    } else {
+                        nextIndex = currentIndex + 1;
+                    }
+                    
+                    container.find(".img-con-1").css("background-image", `url('uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/1.jpg')`);
+                    container.find(".img-con-2").css("background-image", `url('uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/2.jpg')`);
+                    
+                    currentIndex = nextIndex;
+                }
+                
+                switchImages(); // Initialize with first images
+                setInterval(switchImages, 3000);
+            });
+        });
+    </script>
+</body>
+
+</html>

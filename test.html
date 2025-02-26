@@ -4,94 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step by Step Guide</title>
+    <title>Limit Text to 4 Lines</title>
     <style>
-        .hidden .details {
-            display: none;
-        }
-        
-        .step {
-            margin: 20px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        
-        .details {
-            margin-top: 10px;
+        .limited-text {
+            overflow: hidden;
+            display: block;
+            line-height: 1.5em;
+            /* Adjust based on font size */
+            max-height: 6em;
+            /* 4 lines × 1.5em line-height */
+            position: relative;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="step" id="step1">
-        <h2>Step 1</h2>
-        <div class="details">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut
-                iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet
-                totam eaque voluptas rem, iure iste consectetur ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur
-                velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet totam eaque voluptas rem, iure iste consectetur
-                ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi
-            </p>
-        </div>
-    </div>
-    <div class="step hidden" id="step2">
-        <h2>Step 2</h2>
-        <div class="details">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequLorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur
-                corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi
-                modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet totam eaque voluptas rem, iure iste consectetur ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae
-                nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam
-                distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui
-            </p>
-        </div>
-    </div>
-    <div class="step hidden" id="step3">
-        <h2>Step 3</h2>
-        <div class="details">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut
-                iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur
-                corrupti, enim explicabo nemo, quibusdam quam distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi
-                modi ut in velit, neque beatae placeat aut qui quibusdam maxime impedit aperiam! Nulla est dignissimos mollitia eveniet totam eaque voluptas rem, iure iste consectetur ea ipsam porro perferendis, explicabo laboriosam illo. Quo, molestiae
-                nisi culpa obcaecati porro quisquam id dolorum nostrum recusandae!Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis at dolore, alias assumenda ipsam eligendi quis consequatur corrupti, enim explicabo nemo, quibusdam quam
-                distinctio delectus asperiores ipsa! Quis, excepturi nulla. Porro, aut iste minus rerum molestias temporibus consectetur velit, modi culpa aspernatur, ipsam non asperiores? Maiores eligendi modi ut in velit, neque beatae placeat aut qui
-            </p>
-        </div>
-    </div>
-    <!-- Add more steps as needed -->
+    <p class="limited-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            var steps = $('.section-step-item');
-            var currentStep = 0;
+        document.addEventListener("DOMContentLoaded", function() {
+            const paragraph = document.querySelector(".limited-text");
+            const lineHeight = parseFloat(getComputedStyle(paragraph).lineHeight);
+            const maxHeight = lineHeight * 4; // Limit to 4 lines
 
-            function checkSteps() {
-                var scrollPosition = $(window).scrollTop();
-                var windowHeight = $(window).height();
+            if (paragraph.scrollHeight > maxHeight) {
+                let text = paragraph.textContent.trim();
 
-                steps.each(function(index) {
-                    var stepOffsetTop = $(this).offset().top;
-                    var stepOffsetBottom = stepOffsetTop + $(this).outerHeight();
-
-                    var offsetValue = 1000;
-                    if (scrollPosition + windowHeight > stepOffsetTop + offsetValue) { // Revealing steps when they enter viewport
-                        if (index > currentStep) {
-                            $(this).removeClass('section-step-item-hidden');
-                            currentStep = index;
-                        }
-                    } else if (scrollPosition + windowHeight <= stepOffsetTop + offsetValue) { // Hiding steps when they leave viewport
-                        if (index <= currentStep) {
-                            $(this).addClass('section-step-item-hidden');
-                            currentStep = index - 1;
-                        }
-                    }
-                });
+                while (paragraph.scrollHeight > maxHeight && text.length > 0) {
+                    text = text.slice(0, -1).trim(); // Remove characters one by one
+                    paragraph.textContent = text + "..."; // Add ellipsis
+                }
             }
-
-            $(window).on('scroll', checkSteps);
-            checkSteps(); // Initial check to reveal the first step
         });
     </script>
 

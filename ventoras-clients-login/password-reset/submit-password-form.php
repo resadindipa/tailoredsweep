@@ -129,6 +129,7 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
 echo $form_status;
 
 
+
 function is_link_expired($created_date)
 {
     $minutes_the_link_is_valid = 60;

@@ -1,27 +1,43 @@
 $(document).ready(function() {
+    $('#profilePictureUploadFrontBtn').click(function(e) {
+        $('#profilePictureUpload').click();
+    });
+
     $('#profilePictureUpload').change(function() {
         var file = this.files[0];
         if (file) {
             var formData = new FormData();
+            // let review_id = $("input[name='review_id']").val();
+            // let current_profile_picture = $("input[name='profile_picture']").val().trim(); // Get profile picture URL
+
+
+            // formData.append('current_profile_picture', current_profile_picture)
             formData.append('profile_picture', file);
+            // formData.append('review_id', review_id);
 
             $.ajax({
-                url: '../php/upload_profile_picture.php',
+                url: 'tmp_add_profile_picture.php',
                 type: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
                 dataType: 'json',
                 success: function(response) {
+
                     if (response.success) {
-                        $('#profilePictureURL').val(response.file_url);
-                        alert('Profile picture updated successfully!');
+                        //update the profilePicture with the newly uploaded image
+                        $('#profilepictureimg').attr('src', response.image_link);
+                        $("input[name='review_profilepicture']").attr('value', response.image_name);
+
+                        // showPopup("success", "Profile Picture successfully Changed.");
+                    } else if (response.message == "invalidtype") {
+                        showPopup("error", "Wrong File Type. Profile Picture not Changed.");
                     } else {
-                        alert('Error: ' + response.error);
+                        showPopup("error", "Something's wrong. Profile Picture not Changed.");
                     }
                 },
                 error: function() {
-                    alert('File upload failed!');
+                    showPopup("error", "Profile Picture not Changed.");
                 }
             });
         }
@@ -30,54 +46,63 @@ $(document).ready(function() {
         e.preventDefault(); // Prevent form submission
 
         // Get form values
-        let id = $("input[name='id']").val();
-        let name = $("input[name='name']").val().trim();
-        let review = $("textarea[name='review']").val().trim();
+        let review_id = $("input[name='review_id']").val();
+        let review_name = $("input[name='review_name']").val().trim();
+        let review_desc = $("textarea[name='review_desc']").val().trim();
         let review_date = $("input[name='review_date']").val().trim();
-        let profile_picture = $("input[name='profile_picture']").val().trim(); // Get profile picture URL
+        let review_profilepicture = $("input[name='review_profilepicture']").val().trim();
 
         // Validation: Ensure fields are not empty
-        if (name === "" || review === "" || review_date === "") {
+        if (review_name === "" || review_desc === "" || review_date === "") {
             showPopup("error", "Changes not saved. All fields are required.");
             return;
         }
 
-        // Send AJAX request
-        $.post("update_review.php", {
-            id: id,
-            name: name,
-            review: review,
-            review_date: review_date,
-            profile_picture: profile_picture // Include profile picture
-        }, function(response) {
-            if (response.trim() === "success") {
-                showPopup("success", "Changes saved successfully.");
-            } else {
+
+
+        var formData = new FormData();
+        // let review_id = $("input[name='review_id']").val();
+        // let current_profile_picture = $("input[name='profile_picture']").val().trim(); // Get profile picture URL
+
+
+        // formData.append('current_profile_picture', current_profile_picture)
+        formData.append('review_id', review_id);
+        formData.append('review_name', review_name);
+        formData.append('review_desc', review_desc);
+        formData.append('review_date', review_date);
+        formData.append('review_profilepicture', review_profilepicture);
+
+        // formData.append('review_id', review_id);
+
+        $.ajax({
+            url: 'update_review.php',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function(response) {
+
+                if (response.success) {
+                    showPopup("success", "Changes saved successfully.");
+                } else {
+                    showPopup("error", "Changes not saved. Please try again.");
+                }
+            },
+            error: function() {
                 showPopup("error", "Changes not saved. Please try again.");
             }
         });
+
     });
 
     $("#deleteReview").click(function(e) {
         e.preventDefault(); // Prevent form submission
 
-        console.log("DLT BTN");
-        // Get form values
-        let id = $("input[name='id']").val();
-
-
-        // Send AJAX request
-        $.post("delete_review.php", {
-            id: id
-        }, function(response) {
-            console.log(response);
-            if (response.trim() === "success") {
-                showPopup("success", "Review Deleted successfully.", true);
-            } else {
-                showPopup("error", "Review not Deleted. Please try again.");
-            }
-        });
+        showConfirmationPopup();
     });
+
+
 
 
     // Function to display a popup message
@@ -88,7 +113,7 @@ $(document).ready(function() {
 
         if (type === "success") {
             popupClass = "alert-success";
-            btnClass = "btn-success";
+            btnClass = "btn-secondary";
         } else {
             popupClass = "alert-danger";
             btnClass = "btn-danger";
@@ -125,5 +150,74 @@ $(document).ready(function() {
             }
         });
     }
+
+    function deleteReview() {
+        // Get form values
+        let review_id = $("input[name='review_id']").val();
+
+
+        var formData = new FormData();
+
+
+        formData.append('review_id', review_id);
+
+        $.ajax({
+            url: 'delete_review.php',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function(response) {
+
+                if (response.success) {
+                    showPopup("success", "Review Deleted successfully.", true);
+                } else {
+                    showPopup("error", "Review not Deleted. Please try again.");
+                }
+            },
+            error: function() {
+                showPopup("error", "Review not Deleted. Please try again.");
+            }
+        });
+
+
+    }
+
+    function showConfirmationPopup() {
+        // Create overlay and confirmation popup HTML
+        let popupHtml = `
+            <div id="popupOverlay">
+                <div id="popupMessage" class="danger">
+                    <p>Are you sure you want to delete this review?</p>
+                    <button id="confirmDelete" class="btn btn-danger">Delete</button>
+                    <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        `;
+
+        // Append to body
+        $("body").append(popupHtml);
+
+        // Delete action
+        $("#confirmDelete").click(function() {
+            deleteReview();
+            $("#popupOverlay").remove(); // Remove popup after execution
+        });
+
+        // Cancel action
+        $("#cancelDelete").click(function() {
+            $("#popupOverlay").remove();
+        });
+
+        // Close popup when clicking on overlay background (not the popup itself)
+        $("#popupOverlay").click(function(e) {
+            if (e.target.id === "popupOverlay") {
+                $("#popupOverlay").remove();
+            }
+        });
+    }
+
+
 
 });
