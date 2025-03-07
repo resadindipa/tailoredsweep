@@ -22,19 +22,14 @@ $project_images = $_POST['project_images'];
 $project_highlighted_image = $_POST['project_highlighted_image'];
 $action_method = $_POST['action_method'];
 
-
-// Initialize the session
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if(!isset($_SESSION['ui']) || !isset($_SESSION['si'])){
+$someone_logged_in = is_someone_logged_in();
+if ($someone_logged_in == false) {
     print_update_status(false, "notlogged");
 }
 
-$session_user_id = $_SESSION['ui'];
 
-$project_userid = $session_user_id;
+$project_userid = $_SESSION['ui'];
+
 
 $project_images_folder = dirname(__DIR__) . '/uploads/project_images/';
 $tmp_project_images_folder = dirname(__DIR__) . '/uploads/tmp_project_images/';

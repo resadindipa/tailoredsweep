@@ -12,12 +12,9 @@ $id = $_POST['review_id'];
 
 //Check if the project actually belongs to the logged-in user
 // Initialize the session
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION['ui']) || !isset($_SESSION['si'])) {
-    print_update_status_basic_layout(false, "notlogged");
+$someone_logged_in = is_someone_logged_in();
+if ($someone_logged_in == false) {
+    print_update_status(false, "notlogged");
 }
 
 $session_user_id = $_SESSION['ui'];

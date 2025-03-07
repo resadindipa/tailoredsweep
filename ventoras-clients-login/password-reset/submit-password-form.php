@@ -66,7 +66,7 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
             if (!empty($_POST['password1'])) {
                 if ($_POST['password1'] == $_POST['password2']) {
                     //check if the password is shorter than 8 characters
-                    if (strlen($_POST['password1']) > 8) {
+                    if (strlen($_POST['password1']) > $MINIMUM_PASSWORD_STR_LENGTH) {
                         //proceed to update the database records
                         // Prepare an update statement
                         $sql = "UPDATE users SET password = ? WHERE id = ?";
@@ -93,40 +93,28 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
                                     if (mysqli_stmt_execute($stmt_2)) {
 
                                         //Successfully Deleted the Password Reset Link Entry
-                                        $form_status .= "Password Changed Successfully.";
+                                        print_update_status_basic_layout(true, "Password Changed Successfully");
                                         
-                                    } else {
-                                        $form_status .= "Something's wrong, Try again Later.";
-                                    }
+                                    } 
 
                                     // Close statement
                                     mysqli_stmt_close($stmt_2);
                                 }
-                            } else {
-                                $form_status .= "Something's wrong, Try again Later.";
-                            }
+                            } 
 
                             // Close statement
                             mysqli_stmt_close($stmt);
                         }
-                    } else {
-                        $form_status .= "Password should be longer than 8 characters";
                     }
-                } else {
-                    $form_status .= "Passwords don't match each other";
-                }
-            } else {
-                $form_status .= "Password can't be empty";
+                } 
             }
         } else {
-            $form_status .= "Reset Key is Expired, Try 'Reset Password' again." . $expired_link . "---" . $valid_link;
+            print_update_status_basic_layout(false, "Reset Key is Expired, Try 'Reset Password' again");
         }
-    } else {
-        $form_status .= "Reset key is Invalid.";
-    }
+    } 
 }
 
-echo $form_status;
+print_update_status_basic_layout(false, "Something went wrong!");
 
 
 

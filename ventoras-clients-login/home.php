@@ -1,15 +1,13 @@
 <?php
 // Include config file
 require_once "php/config.php";
+$someone_logged_in = is_someone_logged_in();
 
 $user_allowed_to_stay = false;
 
-// Initialize the session
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
-if (isset($_SESSION['si']) && !empty($_SESSION['si']) && isset($_SESSION['ui']) && !empty($_SESSION['ui'])) {
+
+if ($someone_logged_in) {
     //verify the sesion id
     $stored_session_id = $_SESSION['si'];
     $stored_user_id = $_SESSION['ui'];
@@ -41,18 +39,6 @@ if (isset($_SESSION['si']) && !empty($_SESSION['si']) && isset($_SESSION['ui']) 
     }
 }
 
-if ($user_allowed_to_stay == false) {
-    redirect_to_login();
-}
-
-
-function redirect_to_login()
-{
-    // echo "redirecting";
-    // Redirect to login page
-    header("location: index.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,45 +46,63 @@ function redirect_to_login()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"> -->
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <!-- Home Button -->
-            <a class="navbar-brand" href="home.php">Home</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <?php if ($someone_logged_in == true && $user_allowed_to_stay == true) { ?>
+        <nav class="navbar-dark bg-dark">
+            <div class="main-container-outer">
+                <div class="main-container">
+                    <div class="navbar">
+                        <a class="navbar-brand text-white" href="home.php">Home</a>
+                        <button class="logout-btn">
+                            <a href="logout.php">
+                                <span>Logout</span>
+                                <img src="content/logout.svg" alt="Logout">
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- <br> -->
+        <div class="main-container-outer">
+            <div class="main-container">
+                <div class="main-container-header">
+                    <h2 class="main-container-title">Content Management</h2>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <!-- Logout Button -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn btn-danger" href="logout.php">Logout</a>
+                </div>
+
+                <br>
+
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <h4 class="section-item-title"><a href="reviews/">Manage Reviews</a></h4>
+                        <p class="section-item-desc text-muted">View, edit, and manage customer reviews.</p>
+                    </li>
+                    <hr>
+                    <li class="mt-3">
+                        <h4 class="section-item-title"><a href="projects/">Manage Projects</a></h4>
+                        <p class="section-item-desc text-muted">View, edit, and manage Projects</p>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>
-    <div class="container mt-4">
-        <h3 class="mb-4">Content Management</h3>
-        <br>
-        <ul class="list-unstyled">
-            <li class="mb-3">
-                <h4><a href="reviews/" class="text-decoration-none">Manage Reviews</a></h4>
-                <p class="text-muted">View, edit, and manage customer reviews.</p>
-            </li>
-            <hr>
-            <li class="mt-3">
-                <h4><a href="projects/" class="text-decoration-none">Manage Projects</a></h4>
-                <p class="text-muted">View, edit, and manage Projects</p>
-            </li>
-        </ul>
-    </div>
+
+
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <!-- <script src="../js/reviews.js"></script> -->
+
+    <?php } else {
+        readfile('../php/loginrequired.html');
+    } ?>
 
 </body>
 

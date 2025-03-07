@@ -1,0 +1,12 @@
+@media only screen and (max-width: 576px){
+    #submitbtn {
+        width: 100%;
+    }
+}
+
+#submitbtn{
+    margin: 20px 0;
+}
+#profilePictureUpload{
+    display: none;
+}

@@ -1,0 +1,39 @@
+<style>
+    .wrapper {
+        width: 100%;
+    }
+    
+    .main-universe {
+        height: 100vh;
+        display: flex;
+        /* align-content: center; */
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .main-container-index {
+        width: 90%;
+        max-width: 360px;
+    }
+    
+    .loginredirectbtn {
+        width: 200px;
+        margin-top: 20px;
+    }
+    
+    @media only screen and (max-width: 576px) {
+        #submitbtn, .loginredirectbtn {
+            width: 100%;
+        }
+    }
+</style>
+<div class="main-universe" id="loginrequireddiv">
+    <div class="main-container-index">
+        <div class="wrapper text-center">
+            <h2>Login Required</h2>
+            <p>You have to log-in to access this page</p>
+            <button class="btn btn-primary loginredirectbtn"><a href="http://localhost/tailoredsweep/ventoras-clients-login/index.php">Log in</a></button>
+            <!-- <input type="submit" id="submitbtn" class="btn btn-primary" value="Login"> -->
+        </div>
+    </div>
+</div>

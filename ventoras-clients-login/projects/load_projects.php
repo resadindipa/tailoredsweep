@@ -37,27 +37,35 @@ if ($number_of_items > 0) {
     // Generate HTML for the new reviews
     while ($row = mysqli_fetch_assoc($result)): ?>
 
+        <div class="project-item">
 
-        <div class="project-card">
-            <img src="<?php if ($row['project_highlighted_image'] != '') {
-                            echo  $PROJECT_IMAGES_LINK_BASE . $row['project_highlighted_image'];
-                        } else {
-                            echo  $PROJECT_IMAGES_LINK_BASE . $DEFAULT_PROJECT_BG_IMAGE;
-                        } ?>">
-            <div class="content project-header">
-                <div class="title"><?php echo htmlspecialchars($row['project_title']); ?></div>
-                <div class="date"><?php
-                                    $timestamp = strtotime($row['project_date']);
-                                    $day = date('j', $timestamp);
-                                    $suffix = date('S', $timestamp); // PHP date doesn't provide 'st', 'nd', 'rd', 'th' suffixes directly
-                                    $month = date('F', $timestamp);
-                                    $year = date('Y', $timestamp);
-                                    echo "{$day}" . getDaySuffix($day) . " {$month}, {$year}";
-                                    ?></div>
-                <div class="desc"><?php echo htmlspecialchars($row['project_desc']); ?></div>
-                <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary edit-btn">Edit</a>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-5 project-item-img-sec">
+                    <div class="project-item-img" style="<?php if ($row['project_highlighted_image'] != '') {
+                                                                echo "background-image: url('" . $PROJECT_IMAGES_LINK_BASE . $row['project_highlighted_image'] . "');";
+                                                            } ?>');"></div>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-7 project-item-desc-sec">
+                    <div class="project-item-desc-sec-div">
+                        <h3 class="project-title"><?php echo htmlspecialchars($row['project_title']); ?></h3>
+                        <p class="project-date"><?php
+                                                $timestamp = strtotime($row['project_date']);
+                                                $day = date('j', $timestamp);
+                                                $suffix = date('S', $timestamp); // PHP date doesn't provide 'st', 'nd', 'rd', 'th' suffixes directly
+                                                $month = date('F', $timestamp);
+                                                $year = date('Y', $timestamp);
+                                                echo "{$day}" . getDaySuffix($day) . " {$month}, {$year}";
+                                                ?></p>
+                        <p class="project-desc"><?php echo htmlspecialchars($row['project_desc']); ?></p>
+                        <button class="btn btn-secondary edit-btn">
+                            <a href="edit.php?id=<?php echo $row['id']; ?>">Edit Project</a>
+                        </button>
+                    </div>
+                </div>
             </div>
+
         </div>
+
 
 <?php endwhile;
 } else {

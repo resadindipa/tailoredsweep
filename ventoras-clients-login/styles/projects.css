@@ -1,3 +1,102 @@
+@media only screen and (max-width: 576px) {
+    .project-item {
+        border: 1px solid #a4a4a4;
+        /* padding: 10px; */
+        border-radius: 5px;
+        margin-bottom: 6vw;
+    }
+    .project-item-desc-sec-div {
+        padding: 10px;
+    }
+    .project-item-desc-sec {
+        margin-top: 3vw;
+    }
+    .project-item .project-item-img {
+        max-width: none!important;
+        max-height: none!important;
+        border-bottom-left-radius: 0!important;
+        border-bottom-right-radius: 0!important;
+        height: 60vw!important;
+    }
+    .project-item .project-title {
+        font-size: 5vw!important;
+    }
+    .project-item .project-date {
+        margin: 5px 0!important;
+    }
+    .project-item .project-date,
+    .project-item .project-desc {
+        font-size: 4.5vw !important;
+    }
+    .project-item .project-desc {
+        line-height: 7vw;
+        margin-top: 5vw;
+        max-height: 21vw;
+    }
+    button.btn.btn-secondary.edit-btn {
+        width: 100%;
+        margin-top: 3vw;
+        padding: 10px 0;
+        font-size: 4.5vw;
+    }
+
+    .project-item-img-sec, .project-item-desc-sec{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .project-item .project-item-img {
+        max-width: 250px;
+        max-height: 180px;
+    }
+}
+
+
+/* project item */
+
+.project-item {
+    margin-bottom: 20px;
+}
+
+.project-item .project-item-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #d6d6d6;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-item .project-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.project-item .project-date {
+    font-size: 17px;
+    margin: 10px 0;
+    color: #999999;
+}
+
+.project-item .project-desc {
+    font-size: 17px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-item .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/* 
 .project-card {
     display: flex;
     align-items: center;
@@ -6,12 +105,6 @@
     border-radius: 8px;
     background: #fff;
     margin-bottom: 15px;
-}
-
-/* for create a new project button's inside <a> */
-a{
-    color: white!important;
-    text-decoration: none!important;
 }
 
 .project-card img {
@@ -50,4 +143,4 @@ a{
 
 .project-card .edit-btn {
     margin-top: 10px;
-}
+} */

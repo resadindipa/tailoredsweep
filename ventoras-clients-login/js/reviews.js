@@ -27,19 +27,20 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             async: false,
+            // dataType: 'json',
             url: "../reviews/load_reviews.php",
             data: { page: page2 },
             success: function(data) {
-                if (data.trim() !== "endofresults") {
-
+                console.log(data);
+                if (data != "endofresults" || data != "loginrequired") {
                     //if there isn't a need to load more items, the code below will hide this button
                     $("#load-more").show();
-                    
+
                     $("#reviews-container").append(data);
 
 
                     //count how many individual reviews are in the response
-                    var countOfReviews = $(data).find('.review-header').length;
+                    var countOfReviews = $(data).find('.review-divider').length;
 
                     // console.log(countOfReviews);
                     //If it's less than 3, that means there isn't going to another 3-pack to receive
@@ -54,11 +55,13 @@ $(document).ready(function() {
                         history.pushState(null, "", "?page=" + page); // Update URL without reload
                         // console.log(page);
                     }
-
-                } else {
+                } else if (data.message == "endofresults") {
                     nomorereviews = true;
                     $("#load-more").hide();
+                } else if (data.message == "loginrequired") {
+                    console.log("loginrequired");
                 }
+
             }
         });
 

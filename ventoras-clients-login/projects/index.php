@@ -1,8 +1,9 @@
 <?php
-// Database connection
-include '../php/config.php';
-?>
 
+require_once '../php/config.php';
+$someone_logged_in = is_someone_logged_in();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,43 +13,57 @@ include '../php/config.php';
     <title>Projects</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/projects.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <!-- Home Button -->
-            <a class="navbar-brand" href="../home.php">Home</a>
+<body> <?php if ($someone_logged_in) { ?>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar-dark bg-dark">
+            <div class="main-container-outer">
+                <div class="main-container">
+                    <div class="navbar">
+                        <a class="navbar-brand text-white" href="../home.php">Home</a>
+                        <button class="logout-btn">
+                            <a href="../logout.php">
+                                <span>Logout</span>
+                                <img src="../content/logout.svg" alt="Logout">
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- <br> -->
+        <div class="main-container-outer">
+            <div class="main-container">
+                <div class="main-container-header">
+                    <h2 class="main-container-title">Projects</h2>
+                    <button class="btn btn-primary">
+                        <img src="../content/add.svg" alt="Plus Icon" width="16" height="16">
+                        <a href="add.php">Add a New Project</a>
+                    </button>
+                </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <!-- Logout Button -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn btn-danger" href="../logout.php">Logout</a>
-                    </li>
-                </ul>
+                <div id="projects-container">
+                    <!-- Reviews will be loaded here via AJAX -->
+
+
+                </div>
+
+                <div class="text-center">
+                    <button id="load-more" style="display: none;" class="btn btn-primary mt-3">Load More</button>
+
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container mt-4">
-        <h2 class="mb-4">Projects</h2>
-        <button class="btn btn-primary mt-3">
-            <a href="add.php">Add a New Review</a>
-        </button>
-        <br><br>
-        <div id="projects-container">
-            <!-- Reviews will be loaded here via AJAX -->
-        </div>
 
-        <button id="load-more" style="display: none;" class="btn btn-primary mt-3">Load More</button>
-    </div>
 
-    <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/projects.js"></script>
+        <script src="../js/jquery-3.7.1.min.js"></script>
+        <script src="../js/projects.js"></script>
+    <?php } else {
+            readfile('../php/loginrequired.html');
+        } ?>
 
 </body>
 

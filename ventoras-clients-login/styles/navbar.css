@@ -1,0 +1,128 @@
+.logout-btn {
+    background-color: #51ADE5;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    float: right;
+}
+
+.logout-btn:hover {
+    background-color: #4296C6;
+}
+
+.logout-btn img {
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+.main-container {
+    padding: 0 30px;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    max-width: 1200px;
+}
+
+button#load-more {
+    display: none;
+    margin: 20px 0;
+    padding: 10px 40px;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-container {
+        padding: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    /* website's general layout */
+    .main-container {
+        padding: 0 3vw;
+    }
+
+    button#load-more {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .main-container {
+        padding: 0 3vw;
+    }
+}
+
+@media (max-width: 425px) {
+    .logout-btn {
+        padding: 8px;
+    }
+    .logout-btn span {
+        display: none;
+    }
+    .logout-btn img {
+        display: inline;
+    }
+}
+
+
+/* generalized items css start */
+
+
+/* generalized items css */
+
+.main-container-outer {
+    text-align: center;
+}
+
+.main-container .main-container-title {
+    width: fit-content;
+    /* font-weight: 800; */
+    font-size: 25px;
+    display: inline-block;
+    margin: 0;
+}
+
+.main-container-header {
+    display: block;
+    /* height: 40px; */
+    width: 100%;
+    margin: 30px 0;
+}
+
+.main-container .main-container-header button {
+    display: inline-block;
+}
+
+.main-container-desc {
+    font-size: 16px;
+}
+
+button a {
+    color: white!important;
+    text-decoration: none!important;
+}
+
+@media only screen and (min-width: 576px) {
+    .main-container .main-container-header button {
+        float: right;
+    }
+}
+
+@media only screen and (max-width: 520px){
+    .main-container .main-container-title {
+        font-size: 6vw;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .main-container-header button {
+        width: 100%;
+        padding: 10px 0;
+        margin: 30px 0;
+    }
+}
+
+
+/* generalized items css end */

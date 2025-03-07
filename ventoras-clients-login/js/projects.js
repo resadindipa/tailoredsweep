@@ -19,49 +19,12 @@ $(document).ready(function() {
     if ($_GET['page'] != null) {
         page = parseInt($_GET['page']);
         // console.log(page);
-    } else {
-        // console.log(page);
     }
-
-    function loadReviews(initialLoad = false, allAtOnce = false, page2 = page) {
-        $.ajax({
-            type: "POST",
-            async: false,
-            url: "../projects/load_projects.php",
-            data: { page: page2 },
-            success: function(data) {
-                if (data.trim() !== "endofresults") {
-                    //if there isn't a need to load more items, the code below will hide this button
-                    $("#load-more").show();
+    // else {
+    // console.log(page);
+    // }
 
 
-                    $("#projects-container").append(data);
-
-
-                    //count how many individual reviews are in the response
-                    var countOfReviews = $(data).find('.project-header').length;
-
-                    //If it's less than 3, that means there isn't going to another 3-pack to receive
-                    //So hide load more button and set nomorereview=true;
-                    if (countOfReviews != numberOfItemsPerLoad) {
-                        nomorereviews = true;
-                        $("#load-more").hide();
-                    }
-
-                    if (initialLoad == false && allAtOnce == false) {
-                        page++; // Increment page number for next load
-                        history.pushState(null, "", "?page=" + page); // Update URL without reload
-                        console.log(page);
-                    }
-
-                } else {
-                    nomorereviews = true;
-                    $("#load-more").hide();
-                }
-            }
-        });
-
-    }
 
     //If the page = 2, load the review items chunks accordingly
     if (page != 1) {
@@ -80,3 +43,43 @@ $(document).ready(function() {
         loadReviews(false, false, page + 1);
     });
 });
+
+function loadReviews(initialLoad = false, allAtOnce = false, page2 = page) {
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: "../projects/load_projects.php",
+        data: { page: page2 },
+        success: function(data) {
+            if (data.trim() !== "endofresults") {
+                //if there isn't a need to load more items, the code below will hide this button
+                $("#load-more").show();
+
+
+                $("#projects-container").append(data);
+
+
+                //count how many individual reviews are in the response
+                var countOfReviews = $(data).find('.project-title').length;
+
+                //If it's less than 3, that means there isn't going to another 3-pack to receive
+                //So hide load more button and set nomorereview=true;
+                if (countOfReviews != numberOfItemsPerLoad) {
+                    nomorereviews = true;
+                    $("#load-more").hide();
+                }
+
+                if (initialLoad == false && allAtOnce == false) {
+                    page++; // Increment page number for next load
+                    history.pushState(null, "", "?page=" + page); // Update URL without reload
+                    console.log(page);
+                }
+
+            } else {
+                nomorereviews = true;
+                $("#load-more").hide();
+            }
+        }
+    });
+
+}

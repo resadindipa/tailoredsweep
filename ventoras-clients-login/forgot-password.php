@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if email exists, if yes then proceed to send the reset link
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt,$user_id, $user_email);
+                    mysqli_stmt_bind_result($stmt, $user_id, $user_email);
                     if (mysqli_stmt_fetch($stmt)) {
 
                         // Generating the random reset key with the help of user's email and randomly generated number, both of them transformed through md5()
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
                         $reset_key = $reset_key . $addKey;
 
-                        $sql = "INSERT INTO `password_reset_links` (`email`, `reset_key`, `user_id`) VALUES ('" . $user_email . "', '" . $reset_key . "', '".$user_id."');";
+                        $sql = "INSERT INTO `password_reset_links` (`email`, `reset_key`, `user_id`) VALUES ('" . $user_email . "', '" . $reset_key . "', '" . $user_id . "');";
 
                         //Creating a new record in database
                         if (mysqli_query($link, $sql)) {
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $mail->setFrom('ventoraswebdesign@gmail.com', 'Ventoras Web Email');
 
                             $mail->addAddress($user_email);
-                            $mail->Subject = 'Password Reset';
+                            $mail->Subject = 'Password Reset Key';
                             $mail->Body = $mail_body;
 
 
@@ -116,7 +116,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 exit;
                             }
                         } else {
-                            $login_err = "OOps! Something went wrong, Please try again later.";
+                            $login_err = $sql;
+                            // $login_err = "Oops! Something went wrong, Please try again later. ";
                         }
                     }
                 } else {
@@ -158,29 +159,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <div class="wrapper">
-        <h2>Forgot Your Password?</h2>
-        <p>Don't worry, we got your back. Complete the form below!</p>
-        <br>
-        <?php
-        if (!empty($login_err)) {
-            echo '<div class="alert alert-danger">' . $login_err . '</div>';
-        }
-        ?>
+    <div class="main-universe">
+        <div class="main-container">
+            <div class="wrapper">
+                <h2>Forgot Your Password?</h2>
+                <p>Don't worry, we got your back!</p>
+                <br>
+                <?php
+                if (!empty($login_err)) {
+                    echo '<div class="alert alert-danger">' . $login_err . '</div>';
+                }
+                ?>
 
-        <form action="forgot-password.php" method="post">
-            <div class="form-group">
-                <label>Username or Email Address</label>
-                <input type="text" name="userinput" class="form-control">
+                <form action="forgot-password.php" method="post">
+                    <div class="form-group">
+                        <label>Username or Email Address</label>
+                        <input type="text" name="userinput" class="form-control">
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <input type="submit" id="submitbtn" class="btn btn-primary" value="Continue">
+                    </div>
+                    <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
+                </form>
             </div>
-            <br>
-            
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Continue">
-            </div>
-            <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
-        </form>
+        </div>
     </div>
+
     <script src="js/main.js"></script>
 </body>
 

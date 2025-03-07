@@ -84,40 +84,43 @@
 
 <body>
 
+    <div class="main-universe">
+        <div class="main-container">
 
-    <div class="wrapper">
-        <h2>Reset your Password</h2>
-        <p>Please type a new password below!</p>
-        <div class="alert alert-danger" id="form-error-div" style="display: none;" role="alert">
-            <p id="form-error"></p>
-        </div>
+            <div class="wrapper">
+                <h2>Reset your Password</h2>
+                <p>Please type a new password below!</p>
+                <div class="alert alert-danger" id="form-error-div" style="display: none;" role="alert">
+                    <p id="form-error" style="margin: 0;"></p>
+                </div>
 
-        <div class="alert alert-success" style="display: none;" id="form-success-div" role="alert">
-            <p id="form-success">Password Changed Successfully.</p>
-        </div>
-        <div id="form-success-next" style="display: none;">
-            <button type="button" class="btn btn-success"><a style="color: white!important; text-decoration: none!important;" href="../index.php">Go back to Login</a></button>
-        </div>
-        <form action="#" id="password-form" method="post">
-            <div class="form-group">
-                <label>New Password</label>
-                <input type="password" id="password1" name="password1" class="form-control">
-            </div>
-            <br>
-            <div class="form-group">
-                <label>Repeat it again</label>
-                <input type="password" id="password2" name="password2" class="form-control">
+                <div class="alert alert-success" style="display: none;" id="form-success-div" role="alert">
+                    <p id="form-success">Password Changed Successfully.</p>
+                </div>
+                <div id="form-success-next" style="display: none;">
+                    <button type="button" class="btn btn-success"><a style="color: white!important; text-decoration: none!important;" href="../index.php">Go back to Login</a></button>
+                </div>
+                <form action="#" id="password-form" method="post">
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="password1" name="password1" class="form-control">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Repeat it again</label>
+                        <input type="password" id="password2" name="password2" class="form-control">
 
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <input type="submit" id="submit-form" class="btn btn-primary" value="Change Password">
+                    </div>
+                    <br>
+                    <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
+                </form>
             </div>
-            <br><br>
-            <div class="form-group">
-                <input type="submit" id="submit-form" class="btn btn-primary" value="Change Password">
-            </div>
-            <br>
-            <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
-        </form>
+        </div>
     </div>
-
 </body>
 
 <script src="../js/jquery-3.7.1.min.js"></script>

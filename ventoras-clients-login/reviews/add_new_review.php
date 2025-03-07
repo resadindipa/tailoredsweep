@@ -46,8 +46,12 @@ if ($review_profilepicture != "") {
         print_update_status_basic_layout(false, "tmpfilemissing");
     }
     
+//     error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
     if (!rename($sourceDir, $destinationDir)) {
+        // echo $sourceDir . "---" . $destinationDir;
+        // print_r(error_get_last());
         //File has not been moved successfully, so show an error and exit
         print_update_status_basic_layout(false, "tmpfilemoveerror");
     }

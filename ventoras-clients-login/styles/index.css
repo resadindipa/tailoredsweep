@@ -1,8 +1,36 @@
 body {
-    font: 14px sans-serif;
+    /* font: 14px sans-serif; */
 }
 
 .wrapper {
-    width: 360px;
-    padding: 20px;
+    width: 100%;
 }
+
+.main-universe {
+    height: 100vh;
+    display: flex;
+    /* align-content: center; */
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container-index {
+    width: 90%;
+    max-width: 360px;
+}
+
+button a{
+    color: white!important;
+    text-decoration: none!important;
+}
+
+.loginredirectbtn{
+    width: 200px;
+}
+
+@media only screen and (max-width: 576px){
+    #submitbtn {
+        width: 100%;
+    }
+} 
+    

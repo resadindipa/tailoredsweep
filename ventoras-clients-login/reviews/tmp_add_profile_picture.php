@@ -35,6 +35,18 @@ $filePath = $uploadDir . $newFileName;
 
 // Move the uploaded file first
 if (!move_uploaded_file($profile_picture['tmp_name'], $filePath)) {
+    // Check for errors
+    // if ($profile_picture['error'] !== UPLOAD_ERR_OK) {
+    //     // Print the specific upload error
+    //     echo "Error uploading file: " . $profile_picture['error'];
+    // } else {
+    //     // Print the last file system error
+    //     echo "File upload failed. Last error: " . error_get_last()['message'];
+    // }
+
+    // echo "Temp File Exists: " . (file_exists($profile_picture['tmp_name']) ? "Yes" : "No") . "<br>";
+    // echo "Destination Writable: " . (is_writable(dirname($filePath)) ? "Yes" : "No") . "<br>";
+    
     print_update_status(false, "fileerror");
 }
 

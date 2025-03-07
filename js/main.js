@@ -82,6 +82,50 @@
 //second commit
 const scrollTime = 1200;
 $(document).ready(function() {
+
+    // $(document).ready(function() {
+    $('.img-bna-div-container').each(function(index) {
+        let container = $(this);
+        let totalPairs = parseInt(container.data("total-pairs")) || 1;
+        let BnASectionNumber = index + 1; // Assign section number by order
+        let currentIndex = 1;
+
+
+
+        //i is starting from 2, because 1st initial div with image is already in HTML code
+        for (var i = 2; i <= totalPairs; i++) {
+            for (let g = 1; g <= 2; g++) {
+                let beforeorAfterImagesDiv = container.find('.img-bna-' + g);
+                var div = $('<div></div>')
+                    .addClass('section-item-side-com-img-list-item')
+                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.jpg')`)
+                    .css('height', '100%');
+                beforeorAfterImagesDiv.append(div);
+
+
+                let index2 = 0;
+                let divs = beforeorAfterImagesDiv.find('div'); // Select all divs inside .img-bna-1
+                let totalDivs = divs.length;
+
+                function showNextDiv() {
+                    // divs.hide(); // Hide all divs
+                    // divs.eq(index2).show(); // Show the current div
+                    divs.css("height", "0%");
+                    divs.eq(index2).css("height", "100%");
+                    index2 = (index2 + 1) % totalDivs; // Move to the next index, cycling back to 0
+                }
+
+                // divs.hide(); // Initially hide all divs
+                divs.css("height", "0%");
+                showNextDiv(); // Show the first div
+                setInterval(showNextDiv, 3000); // Repeat every 3 seconds
+            }
+
+        }
+
+    });
+
+
     let screenWidth = screen.width;
 
     // Retrieve and log the message passed in the URL, if any
@@ -166,31 +210,7 @@ $(document).ready(function() {
         });
     }
 
-    // $(document).ready(function() {
-    $('.img-bna-div-container').each(function(index) {
-        let container = $(this);
-        let totalPairs = parseInt(container.data("total-pairs")) || 1;
-        let BnASectionNumber = index + 1; // Assign section number by order
-        let currentIndex = 1;
 
-        function switchImages() {
-            // console.log("switchingimages", container);
-            let nextIndex;
-            if (currentIndex >= totalPairs) {
-                nextIndex = 1;
-            } else {
-                nextIndex = currentIndex + 1;
-            }
-
-            container.find(".img-bna-1").css("background-image", `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/1.jpg')`);
-            container.find(".img-bna-2").css("background-image", `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${nextIndex}/2.jpg')`);
-
-            currentIndex = nextIndex;
-        }
-
-        switchImages(); // Initialize with first images
-        setInterval(switchImages, 3000);
-    });
     // });
 
     $.ajax({
