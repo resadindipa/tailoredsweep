@@ -231,6 +231,7 @@ $(document).ready(function() {
         data: { page: "s" },
         success: function(data) {
             if (data.trim() !== "endofresults") {
+                console.log(data);
                 $("#reviews-carousel-inner").append(data);
             } else {
                 console.log("Something Happened", data);
@@ -246,6 +247,7 @@ $(document).ready(function() {
         data: { page: "s" },
         success: function(data) {
             if (data.trim() !== "endofresults") {
+                console.log(data);
                 $("#projects-carousel-inner").append(data);
             } else {
                 console.log("Something Happened", data);
