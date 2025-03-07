@@ -7,14 +7,14 @@ header("Access-Control-Allow-Headers: Content-Type");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/SMTP.php';
+require '../../PHPMailer-master/src/Exception.php';
+require '../../PHPMailer-master/src/PHPMailer.php';
+require '../../PHPMailer-master/src/SMTP.php';
 
 
 // ini_set('display_errors', 0);
-ini_set('display_errors', 1); // for the development PC only
-error_reporting(E_ALL);
+// ini_set('display_errors', 1); // for the development PC only
+// error_reporting(E_ALL);
 // Check if the POST request contains the expected parameters
 if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'])) {
 
@@ -30,8 +30,7 @@ if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'])) {
 
 function sendEmail($name, $phonenumber, $message)
 {
-
-    $recipient_email = "tailoredsweepties@gmail.com";
+    $recipient_email = "mwresadindipa@gmail.com";
     $mail = new PHPMailer();
 
     $mail->isSMTP();
@@ -45,11 +44,11 @@ function sendEmail($name, $phonenumber, $message)
     $mail->SMTPSecure = 'tls';
     $mail->isHTML(true);
 
-    $mail->setFrom('ventoraswebdesign@gmail.com', 'Ventoras Web Email');
+    $mail->setFrom('ventoraswebdesign@gmail.com', 'Ventoras Clients Message System');
 
     $mail->addAddress($recipient_email);
-    $mail->Subject = 'New Message For Tailored Sweep Website';
-    $mail->Body = '<html><b>Name:</b> '.$name.'<br><br><b>Phone number:</b> '.$phonenumber.'<br><br><b>Message:</b> '.$message.'</html>';
+    $mail->Subject = 'New Message from your Website';
+    $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> ".$name.'<br><b>Phone number:</b> '.$phonenumber.'<br><b>Message:</b> '.$message.'<br><br>Thank You,<br>Ventoras Clients Management</html>';
 
 
     $mail->SMTPOptions = array(

@@ -83,6 +83,17 @@
 const scrollTime = 1200;
 $(document).ready(function() {
 
+    // Scroll to the specific sections when clicked on a button or link(text)
+    $(".action-btn").click(function() {
+        $('#nav-bar-toggle-close').click();
+
+        var targetId = $(this).attr('data-scroll');
+        $('html, body').animate({
+            scrollTop: $("#" + targetId).offset().top
+        }, 1200);
+    });
+
+
     // $(document).ready(function() {
     $('.img-bna-div-container').each(function(index) {
         let container = $(this);
@@ -310,18 +321,18 @@ $(document).ready(function() {
             }
         } else {
 
-            $.post("https://www.ventoras.com/form/submit.php", {
+            $.post("ventoras-clients-login/client-messages/form/submit.php", {
                     name: name,
                     phonenumber: phonenumber,
                     message: message
                 },
                 function(data, status) {
-                    // console.log("Data: " + data + "\nStatus: " + status);
-                    if (data == "success") {
-                        $('#form-error').hide();
-                        $('.contact-text-form').hide();
-                        $('#contact-section-success').show();
-                    }
+                    console.log("Data: " + data + "\nStatus: " + status);
+                    // if (data == "success") {
+                    //     $('#form-error').hide();
+                    //     $('.contact-text-form').hide();
+                    //     $('#contact-section-success').show();
+                    // }
                 });
 
 
