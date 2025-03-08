@@ -3,11 +3,12 @@
 include '../php/config.php';
 
 // Check if an ID is provided
-if (isset($_POST['id']) || isset($_GET['id'])) {
+// if (isset($_POST['id']) || isset($_GET['id'])) {
+if (isset($_POST['id'])) {
     
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    }
+    // if(isset($_GET['id'])){
+    //     $id = $_GET['id'];
+    // }
 
     if(isset($_POST['id'])){
         $id = $_POST['id']; // Convert to integer for security

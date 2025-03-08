@@ -13,18 +13,18 @@ define('TIMEZONE', 'Asia/Colombo');
 date_default_timezone_set(TIMEZONE);
 
 
-// $PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/profile_pictures/";
-// $TMP_PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_profile_pictures/";
-// $PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/project_images/";
-// $TMP_PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_project_images/";
+$PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/profile_pictures/";
+$TMP_PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_profile_pictures/";
+$PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/project_images/";
+$TMP_PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_project_images/";
 
 
 //Testing Mode
-$PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/profile_pictures/";
-$TMP_PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_profile_pictures/";
-$PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/project_images/";
-$TMP_PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_project_images/";
-$DEFAULT_BASE_LINK_CMS = "http://localhost/tailoredsweep/ventoras-clients-login";
+// $PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/profile_pictures/";
+// $TMP_PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_profile_pictures/";
+// $PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/project_images/";
+// $TMP_PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_project_images/";
+// $DEFAULT_BASE_LINK_CMS = "http://localhost/tailoredsweep/ventoras-clients-login";
 
 $DEFAULT_PROFILE_PICTURE_BG_COLOR = "#CCC";
 $DEFAULT_PROFILE_PICTURE_BG_IMAGE = "placeholder.svg";

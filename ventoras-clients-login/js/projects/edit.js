@@ -281,15 +281,19 @@ $(document).ready(function() {
     }
 
     function updateNumImagesBtn() {
+        console.log("updateNumImagesBtn();");
         let numOfImagesAdded = $(".item").length;
 
         if (numOfImagesAdded >= maximumNumberOfImagesPerProject) {
             $("#photo-error").attr("class", "alert alert-danger");
+            
+            //Show or Hide the "Upload New Images" Button
             $("#addnewimagediv").hide();
             // $("#projectImagesUploadFrontBtn").prop("disabled", true);
 
         } else {
             $("#photo-error").attr("class", "alert alert-primary");
+            //Show or Hide the "Upload New Images" Button
             $("#addnewimagediv").show();
             // $("#projectImagesUploadFrontBtn").prop("disabled", false);
         }
@@ -297,8 +301,14 @@ $(document).ready(function() {
         //update the image counter's text
         $("#photo-error").text(`You've added ${numOfImagesAdded} out of ${maximumNumberOfImagesPerProject} images allowed per a project.`);
         $("#photo-error").show();
+
+
+        
     }
 
+    function showOrHideUploadImagesBtn(){
+
+    }
     // Function to display a popup message
 
 

@@ -13,6 +13,9 @@
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
+    <!-- owl carousel css files -->
+    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
 
     <!-- home page style css file -->
     <link rel="stylesheet" href="styles/home.css">
@@ -28,44 +31,6 @@
 <body>
 
     <div class="nav-bar nav-bar-1">
-        <div class="nav-bar-content">
-            <img id="light-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" data-page="index.html" src="contents/images/logowithtext.svg" alt="">
-            <img id="dark-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" src="contents/images/whitetextlogo2.svg" alt="">
-            <div class="nav-bar-left">
-                <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="services-section-item">Services</p>
-                <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="reviews-section-item">Reviews</p>
-                <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="faq-section-item">FAQ</p>
-                <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="projects-section-item">Projects</p>
-                <p class="action-btn navbar-navigate-link" data-page="about.html" data-scroll="">About us</p>
-                <p class="action-btn navbar-navigate-link" id="nav-bar-contact-us" data-page="index.html" data-scroll="contact-us-section-item">Contact us</p>
-            </div>
-
-            <img src="contents/images/navbaricon.svg" alt="" id="nav-bar-toggle">
-        </div>
-    </div>
-
-    <div id="indipa"></div>
-    <div class="nav-bar-toggled">
-        <div class="nav-bar-toggled-items">
-            <h4>Main Sections</h4>
-            <div class="nav-bar-toggle-close-btn-div">
-                <div class="osc-btn">
-                    <div class="osc-btn-div">
-                        <button class="osc-btn-container" id="nav-bar-toggle-close" style="background-image: url('contents/images/navbarclose.svg');"></button>
-                    </div>
-                </div>
-            </div>
-
-            <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="services-section-item">Services</p>
-            <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="reviews-section-item">Reviews</p>
-            <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="faq-section-item">FAQ</p>
-            <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="projects-section-item">Projects</p>
-            <p class="action-btn navbar-navigate-link" data-page="about.html" data-scroll="">About us</p>
-            <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="contact-us-section-item">Contact us</p>
-        </div>
-    </div>
-
-    <!-- <div class="nav-bar nav-bar-1">
         <div class="nav-bar-content">
             <img id="light-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" data-page="index.html" src="contents/images/whitetextlogo2.svg" alt="">
             <img id="dark-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" src="contents/images/whitetextlogo2.svg" alt="">
@@ -101,20 +66,25 @@
             <p class="action-btn navbar-navigate-link" data-page="about.html" data-scroll="">About us</p>
             <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="contact-us-section-item">Contact us</p>
         </div>
-    </div> -->
+    </div>
     <div class="header-section" id="nav-bar-top">
         <div class="section-item-main" id="desc-with-side-img-1">
             <div class="main-section">
-                <div id="project-not-found" style="display: none;">
-                    <h3>Project not Found</h3>
-                    <p>Project with such ID doesn't exist.</p>
-                </div>
-                <p class="section-heading" id="project-date"></p>
-                <h3 class="section-title" id="project-title"></h3>
+                <p class="section-heading">What is it that we do</p>
+                <h3 class="section-title"><span>Solving Core Business Issues</span> with Uniquely Crafted Websites</h3>
 
-                <div id="project-desc">
+                <p class="section-desc">
+                    Are these issues familiar or currently affecting your business operations? If so, you're not alone in facing these challenges with your website's performance and effectiveness.</p>
 
-                </div>
+                <p class="section-desc">Wazza's Landscaping, proudly based in Perth, Australia, has earned a reputation for creating and maintaining beautiful outdoor spaces. Specializing in landscaping, lawn care, and garden maintenance, we serve both residential and commercial
+                    clients with tailored solutions to enhance their properties. Our team brings years of experience and a passion for design to every project, transforming ordinary spaces into extraordinary landscapes. Whether it’s revamping a small
+                    backyard or maintaining a sprawling commercial lawn, we deliver reliable, top-quality service that consistently exceeds expectations. Customer satisfaction is at the heart of everything we do, ensuring each project reflects our commitment
+                    to excellence.</p>
+                <br>
+                <p class="section-desc">Our skilled and dedicated team is the backbone of Wazza’s Landscaping, combining technical expertise with creativity to bring outdoor visions to life. Using high-quality materials and the latest equipment, we focus on delivering precision
+                    and long-lasting results. We work closely with our clients, understanding their needs and preferences to create customized solutions that align with their goals. From immaculate lawn care to intricate garden designs, our team ensures
+                    every detail is handled with care and professionalism. At Wazza’s Landscaping, we’re not just about landscaping; we’re about building lasting relationships with our clients through trust, quality, and exceptional service.</p>
+
             </div>
         </div>
     </div>
@@ -123,16 +93,36 @@
 
     <div class="section-item-main">
         <div class="photo-gallery main-section">
-
+            <!-- <div class="intro">
+                <h2 class="text-center">Lightbox Gallery</h2>
+                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+            </div> -->
             <div class="row photos">
-                
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="test/1.jpg" data-lightbox="photos"><img class="img-fluid" src="test/1.jpg"></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="test/2.jpg" data-lightbox="photos"><img class="img-fluid" src="test/2.jpg"></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="test/3.jpg" data-lightbox="photos"><img class="img-fluid" src="test/3.jpg"></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="test/4.jpg" data-lightbox="photos"><img class="img-fluid" src="test/4.jpg"></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="test/5.jpg" data-lightbox="photos"><img class="img-fluid" src="test/5.jpg"></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="assets/img/desk.jpg" data-lightbox="photos"><img class="img-fluid" src="https://epicbootstrap.com/freebies/snippets/lightbox-gallery/assets/img/desk.jpg"></a>
+                </div>
             </div>
         </div>
     </div>
 
 
 
-    <script src="owlcarousel/jquery-3.7.1.min.js"></script>
+    <!-- <script src="owlcarousel/jquery-3.7.1.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <!-- <script src="owlcarousel/owl.carousel.min.js"></script> -->
     <!-- <script src="projects/sydneybuilds.com/js/main.js"></script> -->
@@ -140,9 +130,10 @@
     <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
 
     <script src="owlcarousel/jquery-3.7.1.min.js"></script>
+    <!-- <script src="owlcarousel/owl.carousel.min.js"></script> -->
     <!-- <script src="projects/sydneybuilds.com/js/main.js"></script> -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/project.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/navbar.js"></script>
 
 

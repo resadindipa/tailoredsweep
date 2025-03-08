@@ -44,7 +44,7 @@ if ($number_of_items > 0) {
             <div class="num-item-cell">
                 <div class="num-item-cell-div projects-item-div">
                     <div class="projects-item-img" style="background-image: url('<?php echo $final_image_link; ?>');">
-                        <a href="project.html<?php echo $final_image_link; ?>" class="projects-item-desc-btn osc-btn-container"></a>
+                        <a href="project.html?id=<?php echo $all_results[$i]['id']; ?>" class="projects-item-desc-btn osc-btn-container"></a>
                     </div>
                 </div>
             </div>

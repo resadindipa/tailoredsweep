@@ -1,85 +1,3 @@
-// var owl2 = $('#owl-carousel-2');
-// var owl = $('#owl-carousel-1');
-
-// let hasAllShown = false;
-
-// let autoWidthValue = true;
-// if (parseInt($(window).width()) < 768) {
-//     autoWidthValue = false;
-// }
-// console.log(parseInt($(window).width()).toString() + "--" + autoWidthValue);
-
-// owl2.owlCarousel({
-//     margin: 18,
-//     loop: false,
-//     autoWidth: autoWidthValue,
-//     responsiveClass: true,
-//     responsive: {
-//         0: {
-//             items: 1,
-//             nav: false
-//         },
-
-//         650: {
-//             items: 2,
-//             nav: false
-//         },
-//         1000: {
-//             items: 4,
-//             nav: true,
-//             loop: false
-//         }
-//     }
-// })
-
-// owl.owlCarousel({
-//     margin: 18,
-//     loop: false,
-//     autoWidth: autoWidthValue,
-//     responsiveClass: true,
-//     responsive: {
-//         0: {
-//             items: 1,
-//             nav: false
-//         },
-//         650: {
-//             items: 2,
-//             nav: false
-//         },
-//         1000: {
-//             items: 4,
-//             nav: false,
-//             loop: false
-//         }
-//     }
-// })
-
-// $('#nextbtn').click(function() {
-//     console.log("edsdsds")
-//     owl.trigger('next.owl.carousel');
-// })
-
-// $('#prevbtn').click(function() {
-//     owl.trigger('prev.owl.carousel');
-// })
-
-
-// changing the name of the title in main section periodically
-// let names = ['New Customers', 'More Sales', 'Valuable Leads', 'Business Growth'];
-
-// let i = 0;
-// setInterval(function() {
-
-//     if (i < names.length - 1) {
-//         i++;
-//     } else {
-//         i = 0;
-//     }
-
-//     document.getElementById("main-section-change").innerHTML = names[i];
-
-// }, 1500);
-//second commit
 const scrollTime = 1200;
 $(document).ready(function() {
 
@@ -294,9 +212,9 @@ $(document).ready(function() {
 
 
     // check_for_nav();
-    $(window).on('scroll', function() {
-        // check_for_nav();
-    });
+    // $(window).on('scroll', function() {
+    // check_for_nav();
+    // });
 
 
 

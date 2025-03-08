@@ -117,15 +117,16 @@ if ($someone_logged_in) {
                     <input type="hidden" id="project_highlighted_image" name="project_highlighted_image" value="<?php echo htmlspecialchars($row['project_highlighted_image']); ?>">
                     <input type="hidden" id="max_images_allowed_per_project" name="max_images_allowed_per_project" value="<?php echo $MAXIMUM_IMAGES_PER_PROJECT; ?>">
 
-                    <?php if (sizeof($project_images_array) < $MAXIMUM_IMAGES_PER_PROJECT) { ?>
+                    <div id="addnewimagediv">
+                        <!-- <label for="image">Choose Image:</label> -->
+                        <input type="file" name="new_image" id="addnewimageinput" accept="image/*" hidden>
                         <br>
-                        <div id="addnewimagediv">
-                            <!-- <label for="image">Choose Image:</label> -->
-                            <input type="file" name="new_image" id="addnewimageinput" accept="image/*" hidden>
-                            <button class="btn btn-primary" id="addnewimagebtn">Add Image</button>
-                        </div>
+                        <button class="btn btn-primary" id="addnewimagebtn" style="display: block;">Add Image</button>
                         <br>
-                    <?php } ?>
+                    </div>
+
+
+
                     <div class="alert alert-primary" id="photo-error">You've added 0 out of 10 images per project.</div>
 
                     <?php if (sizeof($project_images_array) < $MAXIMUM_IMAGES_PER_PROJECT) {
