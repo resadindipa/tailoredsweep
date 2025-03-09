@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 // Check if required POST variables are set and not empty
@@ -27,7 +27,7 @@ if (!in_array($fileExt, $allowedExts)) {
     print_update_status(false, "invalidtype");
 }
 
-$newFileName = generateRandomString() . '.' . "jpg";
+$newFileName = generateRandomString() . '.' . "webp";
 $filePath = $uploadDir . $newFileName;
 
 // Move the uploaded file first
@@ -36,24 +36,36 @@ if (!move_uploaded_file($project_image['tmp_name'], $filePath)) {
 }
 
 try {
-    /// Now process the file with Imagick
+    // Now process the file with Imagick
     $imagick = new Imagick($filePath);
-    $imagick->setImageFormat('jpg');
+    $imagick->autoOrient();
+    $imagick->setImageFormat('webp');
 
-    // Resize and crop to square
-    // $dimensions = min($imagick->getImageWidth(), $imagick->getImageHeight());
-    // $imagick->cropImage($dimensions, $dimensions, 0, 0);
-    $imagick->resizeImage(1000, 1000, Imagick::FILTER_LANCZOS, 1, true);
+    // Get original dimensions
+    $width = $imagick->getImageWidth();
+    $height = $imagick->getImageHeight();
 
-    // Reduce quality
-    $imagick->setImageCompression(Imagick::COMPRESSION_JPEG);
-    $imagick->setImageCompressionQuality(80);
+    // Resize only if the image is too large
+    //true value in resizeImage(...) keeps the image's ratio the same
+    if ($width > $PROJECT_IMAGES_MAXIMUM_WIDTH_HEIGHT || $height > $PROJECT_IMAGES_MAXIMUM_WIDTH_HEIGHT) {
+        $imagick->resizeImage(1200, 1200, Imagick::FILTER_LANCZOS, 1, true);
+    }
+
+    // Apply a balanced compression level
+    // $imagick->setImageCompression(Imagick::COMPRESSION_WEBP);
+    // $imagick->setImageCompressionQuality($PROJECT_IMAGE_COMPRESSION_QUALITY); // Adjust this if needed
+
+    // Equivalent of Imagick::COMPRESSION_WEBP
+    $imagick->setOption('webp:method', '6');    // Best compression quality (0-6)
+    $imagick->setOption('webp:lossless', 'false'); // Use lossy compression
+    $imagick->setOption('webp:quality', $PROJECT_IMAGE_COMPRESSION_QUALITY);   // Standard WebP quality (0-100)
+    $imagick->setOption('webp:alpha-quality', '90'); // For images with transparency
+    $imagick->setOption('webp:filter-strength', '40'); // Similar to JPEG smoothing
+    $imagick->setOption('webp:auto-filter', 'true');
 
     $imagick->writeImage($filePath);
     $imagick->clear();
     $imagick->destroy();
-
-
 } catch (Exception $e) {
     print_update_status(false, "error");
 }

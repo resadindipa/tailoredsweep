@@ -146,6 +146,10 @@
     .img-bna-div {
         height: 200px;
     }
+    .img-bna-div-label {
+        font-size: 16.5px;
+        font-weight: 600;
+    }
     .img-bna-1 {
         padding-bottom: 3px!important;
         padding-right: 0!important;
@@ -377,8 +381,7 @@
     .section-title {
         font-size: 5vw;
     }
-
-    .img-bna-div{
+    .img-bna-div {
         height: 48vw;
     }
 }

@@ -17,7 +17,7 @@ $PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/up
 $TMP_PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_profile_pictures/";
 $PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/project_images/";
 $TMP_PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_project_images/";
-
+$DEFAULT_BASE_LINK_CMS = "https://www.ventoras.com/ventoras-clients-login";
 
 //Testing Mode
 // $PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/profile_pictures/";
@@ -25,6 +25,15 @@ $TMP_PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login
 // $PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/project_images/";
 // $TMP_PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_project_images/";
 // $DEFAULT_BASE_LINK_CMS = "http://localhost/tailoredsweep/ventoras-clients-login";
+
+
+//Project Images
+$PROJECT_IMAGE_COMPRESSION_QUALITY = 60;
+$PROJECT_IMAGES_MAXIMUM_WIDTH_HEIGHT = 1200;
+
+//Review Profile Picture
+$REVIEW_PROFILE_PICTURE_COMPRESSION_QUALITY = 70;
+$REVIEW_PROFILE_PICTURE_MAXIMUM_WIDTH_HEIGHT = 100;
 
 $DEFAULT_PROFILE_PICTURE_BG_COLOR = "#CCC";
 $DEFAULT_PROFILE_PICTURE_BG_IMAGE = "placeholder.svg";

@@ -6,6 +6,8 @@ $(document).ready(function() {
     $('#profilePictureUpload').change(function() {
         var file = this.files[0];
         if (file) {
+
+            $("#profilePictureUploadFrontBtn").prop("disabled", true);
             var formData = new FormData();
             // let review_id = $("input[name='review_id']").val();
             // let current_profile_picture = $("input[name='profile_picture']").val().trim(); // Get profile picture URL
@@ -24,6 +26,7 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(response) {
 
+                    $("#profilePictureUploadFrontBtn").prop("disabled", false);
                     if (response.success) {
                         //update the profilePicture with the newly uploaded image
                         $('#profilepictureimg').attr('src', response.image_link);
@@ -44,6 +47,8 @@ $(document).ready(function() {
     });
     $("#saveChanges").click(function(e) {
         e.preventDefault(); // Prevent form submission
+
+        $("#saveChanges").prop("disabled", true);
 
         // Get form values
         let review_id = $("input[name='review_id']").val();
@@ -82,6 +87,7 @@ $(document).ready(function() {
             processData: false,
             dataType: 'json',
             success: function(response) {
+                $("#saveChanges").prop("disabled", false);
 
                 if (response.success) {
                     showPopup("success", "Changes saved successfully.");

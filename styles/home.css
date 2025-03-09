@@ -14,6 +14,14 @@
     overflow: hidden;
 }
 
+.img-bna-div-label{
+    margin: 0;
+    font-weight: 700;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+}
+
 .section-item-side-com-img-list-item {
     width: 100%;
     height: 100%;
@@ -767,6 +775,8 @@ div#indipa {
     height: 250px;
     background-color: #f4f4f4;
     background-size: cover;
+    background-position: center;
+    cursor: pointer;
 }
 
 .projects-item-desc {

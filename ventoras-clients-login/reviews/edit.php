@@ -60,7 +60,7 @@ if ($someone_logged_in == true) {
             <div class="main-container-outer">
                 <div class="main-container">
                     <div class="navbar">
-                        <a class="navbar-brand text-white" href="index.php">Home</a>
+                        <a class="navbar-brand text-white" href="../home.php">Home</a>
                         <button class="logout-btn">
                             <a href="../logout.php">
                                 <span>Logout</span>
@@ -142,7 +142,7 @@ if ($someone_logged_in == true) {
 
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script> -->
-        <script src="../js/projects/edit.js"></script>
+        <script src="../js/reviews/edit.js"></script>
     <?php } else {
         readfile('../php/loginrequired.html');
     } ?>

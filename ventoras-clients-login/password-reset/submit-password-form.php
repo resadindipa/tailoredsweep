@@ -9,6 +9,8 @@ $expired_link = true;
 if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['reset_key'])) {
 
 
+    $password1 = $_POST['password1'];
+    $password2 = $_POST['password2'];
 
     $valid_link = true;
     //verify the reset key
@@ -62,23 +64,25 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
     //Check if the reset key is valid and not expired
     if ($valid_link == true) {
         if ($expired_link == false) {
+           
             //proceed to check if both passwords are the same
-            if (!empty($_POST['password1'])) {
-                if ($_POST['password1'] == $_POST['password2']) {
+            if (!empty($password1)) {
+                if ($password1 == $password2) {
                     //check if the password is shorter than 8 characters
-                    if (strlen($_POST['password1']) > $MINIMUM_PASSWORD_STR_LENGTH) {
+                    if (strlen($password1) > $MINIMUM_PASSWORD_STR_LENGTH) {
                         //proceed to update the database records
                         // Prepare an update statement
                         $sql = "UPDATE users SET password = ? WHERE id = ?";
 
                         if ($stmt = mysqli_prepare($link, $sql)) {
                             // Bind variables to the prepared statement as parameters
-                            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
+                            mysqli_stmt_bind_param($stmt, "ss", $param_password, $param_id);
 
-                            $new_password = $_POST['password1'];
+                            // $new_password = $_POST['password1'];
                             // Set parameters
-                            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
+                            $param_password = password_hash($password1, PASSWORD_DEFAULT);
                             $param_id = $user_id;
+
 
                             // Attempt to execute the prepared statement
                             if (mysqli_stmt_execute($stmt)) {
@@ -87,11 +91,10 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
                                 if ($stmt_2 = mysqli_prepare($link, $sql)) {
                                     // Bind variables to the prepared statement as parameters
                                     mysqli_stmt_bind_param($stmt_2, "i", $reset_entry_id);
-
+                                    
 
                                     // Attempt to execute the prepared statement
                                     if (mysqli_stmt_execute($stmt_2)) {
-
                                         //Successfully Deleted the Password Reset Link Entry
                                         print_update_status_basic_layout(true, "Password Changed Successfully");
                                         
@@ -100,7 +103,7 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
                                     // Close statement
                                     mysqli_stmt_close($stmt_2);
                                 }
-                            } 
+                            }
 
                             // Close statement
                             mysqli_stmt_close($stmt);
@@ -113,6 +116,7 @@ if (isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['re
         }
     } 
 }
+
 
 print_update_status_basic_layout(false, "Something went wrong!");
 

@@ -11,6 +11,16 @@ $(document).ready(function() {
         }, 1200);
     });
 
+    // console.log("dssdsd");
+    // $(".projects-item-img").click(function() {
+    //     console.log("clicked " + $(this).find('a').attr("href"));
+    //     window.location = $(this).find('a').attr("href");
+    // });
+
+    $(document).on("click", ".projects-item-img", function() {
+        // console.log("clicked " + $(this).find('a').attr("href"));
+        window.location = $(this).find('a').attr("href");
+    });
 
     // $(document).ready(function() {
     $('.img-bna-div-container').each(function(index) {
@@ -20,14 +30,13 @@ $(document).ready(function() {
         let currentIndex = 1;
 
 
-
         //i is starting from 2, because 1st initial div with image is already in HTML code
         for (var i = 2; i <= totalPairs; i++) {
             for (let g = 1; g <= 2; g++) {
                 let beforeorAfterImagesDiv = container.find('.img-bna-' + g);
                 var div = $('<div></div>')
                     .addClass('section-item-side-com-img-list-item')
-                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.jpg')`)
+                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.webp')`)
                     .css('height', '100%');
                 beforeorAfterImagesDiv.append(div);
 
@@ -149,7 +158,7 @@ $(document).ready(function() {
         data: { page: "s" },
         success: function(data) {
             if (data.trim() !== "endofresults") {
-                console.log(data);
+                // console.log(data);
                 $("#reviews-carousel-inner").append(data);
             } else {
                 console.log("Something Happened", data);
@@ -165,7 +174,7 @@ $(document).ready(function() {
         data: { page: "s" },
         success: function(data) {
             if (data.trim() !== "endofresults") {
-                console.log(data);
+                // console.log(data);
                 $("#projects-carousel-inner").append(data);
             } else {
                 console.log("Something Happened", data);
@@ -224,10 +233,10 @@ $(document).ready(function() {
         e.preventDefault();
 
 
-        let name = $('#name').val()
-        let phonenumber = $('#phonenumber').val()
+        let name = $('#name').val();
+        let phonenumber = $('#phonenumber').val();
 
-        let message = $('#message').val()
+        let message = $('#message').val();
 
         if (name == "" || phonenumber == "" || message == "") {
             $('#form-error').text('- Complete all the fields');
@@ -241,18 +250,24 @@ $(document).ready(function() {
             }
         } else {
 
+            $("#submit-form").val("Sending....");
+            $("#submit-form").prop("disabled", true);
+
             $.post("ventoras-clients-login/client-messages/form/submit.php", {
                     name: name,
                     phonenumber: phonenumber,
                     message: message
                 },
                 function(data, status) {
+
+                    $("#submit-form").val("Send Message");
+                    $("#submit-form").prop("disabled", false);
                     console.log("Data: " + data + "\nStatus: " + status);
-                    // if (data == "success") {
-                    //     $('#form-error').hide();
-                    //     $('.contact-text-form').hide();
-                    //     $('#contact-section-success').show();
-                    // }
+                    if (data == "success") {
+                        $('#form-error').hide();
+                        $('.contact-text-form').hide();
+                        $('#contact-section-success').show();
+                    }
                 });
 
 

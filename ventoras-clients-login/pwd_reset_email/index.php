@@ -1,5 +1,5 @@
 <?php
-// require_once "../php/config.php";
+require_once "php/config.php";
 
 // Prevent direct access
 if (!defined('ALLOW_ACCESS')) {
@@ -15,7 +15,7 @@ if (!defined('ALLOW_ACCESS')) {
 </head>
 
 <body>
-    <p>Hello There</p>
+    <p>Hello There,</p>
     <!-- $DEFAULT_BASE_LINK_CMS = localhost/tailoredsweep/ventoras-clients-login -->
     <p>We received a request to reset your password. To proceed, please click the link below and visit it from a browser to securely reset your password:</p>
     <p><a href="<?php echo $DEFAULT_BASE_LINK_CMS; ?>/password-reset/reset-password.php?

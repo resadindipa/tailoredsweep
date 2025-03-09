@@ -111,6 +111,10 @@ $(document).ready(function() {
 
                 formData.append('project_image', file);
 
+
+                $('#addnewimagebtn').html("Uploading...");
+                $("#addnewimagebtn").prop("disabled", true);
+
                 $.ajax({
                     url: 'tmp_add_project_images.php',
                     type: 'POST',
@@ -120,6 +124,9 @@ $(document).ready(function() {
                     dataType: 'json',
                     success: function(response) {
 
+                        $('#addnewimageinput').val('');
+                        $("#addnewimagebtn").prop("disabled", false);
+                        $('#addnewimagebtn').html("Add Images");
                         if (response.success) {
                             let image_link = response.image_link;
                             let image_name = response.image_name;
@@ -286,7 +293,7 @@ $(document).ready(function() {
 
         if (numOfImagesAdded >= maximumNumberOfImagesPerProject) {
             $("#photo-error").attr("class", "alert alert-danger");
-            
+
             //Show or Hide the "Upload New Images" Button
             $("#addnewimagediv").hide();
             // $("#projectImagesUploadFrontBtn").prop("disabled", true);
@@ -303,10 +310,10 @@ $(document).ready(function() {
         $("#photo-error").show();
 
 
-        
+
     }
 
-    function showOrHideUploadImagesBtn(){
+    function showOrHideUploadImagesBtn() {
 
     }
     // Function to display a popup message

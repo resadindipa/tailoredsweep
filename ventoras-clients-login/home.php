@@ -46,7 +46,7 @@ if ($someone_logged_in) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Home Page - Ventoras Clients Management</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/navbar.css">

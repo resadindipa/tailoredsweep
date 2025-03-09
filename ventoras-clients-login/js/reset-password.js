@@ -33,8 +33,6 @@ $("#submit-form").click(function(e) {
                     //Submit the form
                     $.ajax({
                         type: 'POST',
-                        contentType: false,
-                        processData: false,
                         dataType: 'json',
                         url: "../password-reset/submit-password-form.php",
                         data: {
@@ -46,7 +44,7 @@ $("#submit-form").click(function(e) {
                             if (data.success) {
                                 $('#form-error').hide();
                                 //show success div
-                                $('#form-success').text(data);
+                                $('#form-success').text(data.message);
                                 $('#form-success').show();
                                 $('#form-success-div').show();
                                 //hide form and show the 'go to login' page

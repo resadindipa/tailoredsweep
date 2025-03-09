@@ -1,4 +1,14 @@
 <?php
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
+//CURRENTLY NOT IN USE
 header('Content-Type: application/json');
 include '../php/config.php';
 $update_status = "errord";
