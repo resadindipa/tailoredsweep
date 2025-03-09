@@ -39,47 +39,52 @@ $(document).ready(function() {
     }
 
     $("#load-more").click(function() {
+        $("#load-more").prop("disabled", true);
+        $("#load-more").html("Loading...");
         //+1 because we're loading the NEXT badge of three reviews
-        loadReviews(false, false, page + 1);
+        loadReviews(false, false, page + 1, true);
     });
-});
 
-function loadReviews(initialLoad = false, allAtOnce = false, page2 = page) {
-    $.ajax({
-        type: "POST",
-        async: true,
-        url: "../projects/load_projects.php",
-        data: { page: page2 },
-        success: function(data) {
-            if (data.trim() !== "endofresults") {
-                //if there isn't a need to load more items, the code below will hide this button
-                $("#load-more").show();
+    function loadReviews(initialLoad = false, allAtOnce = false, page2 = page, asyncLoadind = false) {
+        $.ajax({
+            type: "POST",
+            async: asyncLoadind,
+            url: "../projects/load_projects.php",
+            data: { page: page2 },
+            success: function(data) {
+                $("#load-more").prop("disabled", false);
+                $("#load-more").html("Load More");
+
+                if (data.trim() !== "endofresults") {
+                    //if there isn't a need to load more items, the code below will hide this button
+                    $("#load-more").show();
 
 
-                $("#projects-container").append(data);
+                    $("#projects-container").append(data);
 
 
-                //count how many individual reviews are in the response
-                var countOfReviews = $(data).find('.project-title').length;
+                    //count how many individual reviews are in the response
+                    var countOfReviews = $(data).find('.project-title').length;
 
-                //If it's less than 3, that means there isn't going to another 3-pack to receive
-                //So hide load more button and set nomorereview=true;
-                if (countOfReviews != numberOfItemsPerLoad) {
+                    //If it's less than 3, that means there isn't going to another 3-pack to receive
+                    //So hide load more button and set nomorereview=true;
+                    if (countOfReviews != numberOfItemsPerLoad) {
+                        nomorereviews = true;
+                        $("#load-more").hide();
+                    }
+
+                    if (initialLoad == false && allAtOnce == false) {
+                        page++; // Increment page number for next load
+                        history.pushState(null, "", "?page=" + page); // Update URL without reload
+                        // console.log(page);
+                    }
+
+                } else {
                     nomorereviews = true;
                     $("#load-more").hide();
                 }
-
-                if (initialLoad == false && allAtOnce == false) {
-                    page++; // Increment page number for next load
-                    history.pushState(null, "", "?page=" + page); // Update URL without reload
-                    console.log(page);
-                }
-
-            } else {
-                nomorereviews = true;
-                $("#load-more").hide();
             }
-        }
-    });
+        });
 
-}
+    }
+});

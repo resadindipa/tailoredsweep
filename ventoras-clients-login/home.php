@@ -101,7 +101,7 @@ if ($someone_logged_in) {
         <!-- <script src="../js/reviews.js"></script> -->
 
     <?php } else {
-        readfile('../php/loginrequired.html');
+        readfile('php/loginrequired.html');
     } ?>
 
 </body>

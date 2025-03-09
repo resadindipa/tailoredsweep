@@ -23,16 +23,18 @@ $(document).ready(function() {
         // console.log(page);
     }
 
-    function loadReviews(initialLoad = false, allAtOnce = false, page2 = page) {
+    function loadReviews(initialLoad = false, allAtOnce = false, page2 = page, asyncLoading = false) {
         $.ajax({
             type: "POST",
-            async: false,
+            async: asyncLoading,
             // dataType: 'json',
             url: "../reviews/load_reviews.php",
             data: { page: page2 },
             success: function(data) {
-                console.log(data);
-                if (data != "endofresults" || data != "loginrequired") {
+                $("#load-more").prop("disabled", false);
+                $("#load-more").html("Load More");
+
+                if (data.message != "endofresults" && data.message != "loginrequired") {
                     //if there isn't a need to load more items, the code below will hide this button
                     $("#load-more").show();
 
@@ -81,6 +83,8 @@ $(document).ready(function() {
 
     $("#load-more").click(function() {
         //+1 because we're loading the NEXT badge of three reviews
-        loadReviews(false, false, page + 1);
+        $("#load-more").prop("disabled", true);
+        $("#load-more").html("Loading...");
+        loadReviews(false, false, page + 1, true);
     });
 });

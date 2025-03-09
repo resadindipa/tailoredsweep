@@ -72,6 +72,9 @@ $(document).ready(function() {
 
     $('#addnewimageinput').change(function() {
 
+        $("#addnewimagebtn").prop("disabled", true);
+        $("#addnewimagebtn").html("Uploading...");
+
         //check if the user has reached the maximum allowed number of photos per project
         if ($('.item').length + 1 > maximumNumberOfImagesPerProject) {
 
@@ -90,6 +93,10 @@ $(document).ready(function() {
                     processData: false,
                     dataType: 'json',
                     success: function(response) {
+
+                        $('#addnewimageinput').val('');
+                        $("#addnewimagebtn").prop("disabled", false);
+                        $("#addnewimagebtn").html("Add Images");
 
                         if (response.success) {
                             let image_link = response.image_link;
@@ -151,6 +158,9 @@ $(document).ready(function() {
         //clear any errors shown for previous form submissions
         $("#form-error").hide();
 
+        $("#saveChanges").prop("disabled", true);
+        $("#saveChanges").html("Adding Project...");
+
         // Get form values
         // let project_id = $("input[name='project_id']").val();
         let project_title = $("input[name='project_title']").val().trim();
@@ -190,9 +200,15 @@ $(document).ready(function() {
 
                 if (response.success) {
 
+
+                    $("#saveChanges").prop("disabled", true);
+                    $("#saveChanges").html("Project Added");
+
                     showPopup("success", "Project was Added.", true);
                 } else {
                     showPopup("error", "Something's wrong. Changes not Saved.");
+
+                    $("#saveChanges").prop("disabled", false);
                 }
             },
             error: function() {

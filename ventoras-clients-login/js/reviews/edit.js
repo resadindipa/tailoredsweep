@@ -164,6 +164,10 @@ $(document).ready(function() {
 
         var formData = new FormData();
 
+        $("#deleteReview").html("Deleting...");
+        $("#saveChanges").prop("disabled", true);
+        $("#cancelEdit").prop("disabled", true);
+        $("#deleteReview").prop("disabled", true);
 
         formData.append('review_id', review_id);
 
@@ -176,6 +180,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
 
+                $("#deleteReview").prop("disabled", false);
                 if (response.success) {
                     showPopup("success", "Review Deleted successfully.", true);
                 } else {

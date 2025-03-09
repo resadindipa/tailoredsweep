@@ -184,6 +184,9 @@ $(document).ready(function() {
     $("#saveChanges").click(function(e) {
         e.preventDefault(); // Prevent form submission
 
+        $("#saveChanges").prop("disabled", true);
+        $('#saveChanges').html("Saving Changes...");
+
         //clear any errors shown for previous form submissions
         $("#form-error").hide();
 
@@ -224,6 +227,9 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
 
+
+                $("#saveChanges").prop("disabled", false);
+                $('#saveChanges').html("Save Changes");
                 if (response.success) {
 
                     showPopup("success", "Changes Saved.");
@@ -368,7 +374,8 @@ $(document).ready(function() {
 
 
 
-
+        $("#deleteReview").prop("disabled", true);
+        $("#deleteReview").html("Deleting Review...");
 
         var formData = new FormData();
 
@@ -384,9 +391,16 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
 
+
+                
                 if (response.success) {
+                    $("#deleteReview").prop("disabled", true);
+                    $("#saveChanges").prop("disabled", true);
+                    $("#cancelEdit").prop("disabled", true);
+                    $("#deleteReview").html("Project Deleted");
                     showPopup("success", "Project Deleted.", true);
                 } else {
+                    $("#deleteReview").prop("disabled", false);
                     showPopup("error", "Something's wrong. Project not Deleted.");
                 }
             },

@@ -16,6 +16,10 @@ $(document).ready(function() {
         if (file) {
             var formData = new FormData();
 
+            $("#profilePictureUploadFrontBtn").prop("disabled", true);
+            $("#profilePictureUploadFrontBtn").html("Uploading...");
+
+
             formData.append('profile_picture', file);
 
             $.ajax({
@@ -27,10 +31,15 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(response) {
 
+
+                    $("#profilePictureUploadFrontBtn").html("Add Picture");
+                    $("#profilePictureUploadFrontBtn").prop("disabled", false);
+
                     if (response.success) {
                         //update the profilePicture with the newly uploaded image
                         $('#profilepictureimg').attr('src', response.image_link);
                         $("input[name='review_profilepicture']").attr('value', response.image_name);
+                        $("#profilePictureUploadFrontBtn").html("Change Picture");
 
                     } else if (response.message == "invalidtype") {
                         showPopup("error", "Wrong File Type. Profile Picture not Added.");
@@ -65,6 +74,7 @@ $(document).ready(function() {
         //Disable the 'Add Review' button while the request is being processed
         //Otherwise, user may click the 'Add Review' button multiple times
         $("#submitbtn").prop("disabled", true);
+        $("#submitbtn").html("Adding Review...");
 
         //clear any errors shown for previous form submissions
         $("#form-error").hide();
@@ -79,7 +89,13 @@ $(document).ready(function() {
         // Validation: Ensure fields are not empty
         if (review_name === "" || review_desc === "" || review_date === "") {
             //show the form error
-            updateFormError("Complete all Fields.");
+            // updateFormError("Complete all Fields.");
+            $("#form-error").attr("class", "alert alert-danger");
+            $("#form-error").text("Complete all Fields.");
+            $("#form-error").show();
+
+            $("#submitbtn").prop("disabled", false);
+            $("#submitbtn").html("Add Review");
             return;
         }
 
@@ -108,12 +124,13 @@ $(document).ready(function() {
                     $("#profilePictureRemoveBtn").click();
 
                     showPopup("success", "Review successfully Added.", true);
+                    $("#submitbtn").html("Review Added");
                 } else {
                     //Show the error
                     showPopup("error", "Something's wrong. Review not Added.");
 
                     //enable the 'Add Review' button, so the user may try again
-                    $("#submitbtn").prop("disabled", true);
+                    $("#submitbtn").prop("disabled", false);
                 }
             },
             error: function() {
@@ -121,18 +138,21 @@ $(document).ready(function() {
                 showPopup("error", "Error, Review Not Added.");
 
                 //enable the 'Add Review' button, so the user may try again
-                $("#submitbtn").prop("disabled", true);
+                $("#submitbtn").prop("disabled", false);
             }
         });
 
     });
 
-    
+
     function updateFormError(errorMessage) {
 
         $("#form-error").attr("class", "alert alert-danger");
         $("#form-error").text(errorMessage);
         $("#form-error").show();
+
+        $("#submitbtn").prop("disabled", false);
+        $("#submitbtn").html("Add Review");
     }
 
 
