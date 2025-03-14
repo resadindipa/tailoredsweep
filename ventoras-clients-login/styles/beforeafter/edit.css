@@ -1,0 +1,43 @@
+p.beforeafter-image-name {
+    margin: 0;
+}
+
+.beforeafter-image-pair-div {
+    margin-bottom: 40px;
+}
+
+.beforeafter-image-image-div {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #d6d6d6;
+    background-size: cover;
+    background-position: center;
+    min-height: 160px;
+}
+
+.beforeafter-image-add-new-pair {
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 576px) {
+    .dataphotolinkclassitem {
+        margin-bottom: 40px;
+    }
+    p.beforeafter-image-name {
+        font-size: 4.5vw;
+    }
+    .alert {
+        font-size: 3.8vw;
+    }
+    #popupMessage {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .alert {
+        font-size: 4.2vw;
+    }
+}

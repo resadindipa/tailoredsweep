@@ -12,6 +12,8 @@
     height: 45px;
     border-radius: 100%;
     background-color: #d6d6d6;
+    background-size: cover;
+    background-position: center;
 }
 
 .review-profile-desc {

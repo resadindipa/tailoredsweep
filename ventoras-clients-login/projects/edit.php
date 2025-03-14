@@ -118,7 +118,7 @@ if ($someone_logged_in) {
                     <input type="hidden" id="max_images_allowed_per_project" name="max_images_allowed_per_project" value="<?php echo $MAXIMUM_IMAGES_PER_PROJECT; ?>">
 
                     <div id="addnewimagediv">
-                        <!-- <label for="image">Choose Image:</label> -->
+                            <!-- <label for="image">Choose Image:</label> -->
                         <input type="file" name="new_image" id="addnewimageinput" accept="image/*" hidden>
                         <br>
                         <button class="btn btn-primary" id="addnewimagebtn" style="display: block;">Add Image</button>

@@ -42,7 +42,6 @@ button#load-more {
     .main-container {
         padding: 0 3vw;
     }
-
     button#load-more {
         width: 100%;
     }
@@ -84,6 +83,14 @@ button#load-more {
     margin: 0;
 }
 
+.main-container .main-container-sub-title {
+    width: fit-content;
+    /* font-weight: 800; */
+    font-size: 21px;
+    display: inline-block;
+    margin: 0;
+}
+
 .main-container-header {
     display: block;
     /* height: 40px; */
@@ -91,7 +98,16 @@ button#load-more {
     margin: 30px 0;
 }
 
-.main-container .main-container-header button {
+.main-container-sub-header {
+    display: block;
+    /* height: 40px; */
+    width: 100%;
+    margin: 20px 0;
+    margin-top: 0;
+}
+
+.main-container .main-container-header button,
+.main-container .main-container-sub-header button {
     display: inline-block;
 }
 
@@ -105,19 +121,24 @@ button a {
 }
 
 @media only screen and (min-width: 576px) {
-    .main-container .main-container-header button {
+    .main-container .main-container-header button,
+    .main-container .main-container-sub-header button {
         float: right;
     }
 }
 
-@media only screen and (max-width: 520px){
+@media only screen and (max-width: 520px) {
     .main-container .main-container-title {
         font-size: 6vw;
+    }
+    .main-container .main-container-sub-title {
+        font-size: 5vw;
     }
 }
 
 @media only screen and (max-width: 576px) {
-    .main-container-header button {
+    .main-container-header button,
+    .main-container-sub-header button {
         width: 100%;
         padding: 10px 0;
         margin: 30px 0;

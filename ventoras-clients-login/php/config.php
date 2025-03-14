@@ -13,23 +13,33 @@ define('TIMEZONE', 'Asia/Colombo');
 date_default_timezone_set(TIMEZONE);
 
 
-// $PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/profile_pictures/";
-// $TMP_PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_profile_pictures/";
-// $PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/project_images/";
-// $TMP_PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_project_images/";
-// $DEFAULT_BASE_LINK_CMS = "https://www.ventoras.com/ventoras-clients-login";
+$PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/profile_pictures/";
+$TMP_PROFILE_PICTURE_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_profile_pictures/";
+$BEFORE_AFTER_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/";
+$TMP_BEFORE_AFTER_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_beforeafter_images";
+$PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/project_images/";
+$TMP_PROJECT_IMAGES_LINK_BASE = "https://www.ventoras.com/ventoras-clients-login/uploads/tmp_project_images/";
+$DEFAULT_BASE_LINK_CMS = "https://www.ventoras.com/ventoras-clients-login";
 
 //Testing Mode
-$PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/profile_pictures/";
-$TMP_PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_profile_pictures/";
-$PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/project_images/";
-$TMP_PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_project_images/";
-$DEFAULT_BASE_LINK_CMS = "http://localhost/tailoredsweep/ventoras-clients-login";
+// $PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/profile_pictures/";
+// $TMP_PROFILE_PICTURE_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_profile_pictures/";
+// $PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/project_images/";
+// $BEFORE_AFTER_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/beforeafter/";
+// $TMP_BEFORE_AFTER_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_beforeafter_images/";
+// $TMP_PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients-login/uploads/tmp_project_images/";
+// $DEFAULT_BASE_LINK_CMS = "http://localhost/tailoredsweep/ventoras-clients-login";
 
 
 //Project Images
 $PROJECT_IMAGE_COMPRESSION_QUALITY = 60;
 $PROJECT_IMAGES_MAXIMUM_WIDTH_HEIGHT = 1200;
+
+$BEFOREAFTER_IMAGES_COMPRESSION_QUALITY = 80;
+$BEFOREAFTER_IMAGES_MAXIMUM_WIDTH_HEIGHT = 1200;
+
+//Before After Images
+$BEFOREAFTER_IMAGE_FILE_NAME_RANDOM_NUM_CHARS = 20;
 
 //Review Profile Picture
 $REVIEW_PROFILE_PICTURE_COMPRESSION_QUALITY = 70;
@@ -41,6 +51,7 @@ $DEFAULT_PROJECT_BG_COLOR = "#CCC";
 $DEFAULT_PROJECT_BG_IMAGE = "placeholder.svg";
 
 $MAXIMUM_IMAGES_PER_PROJECT = 6;
+$MAXIMUM_IMAGE_PAIRS_PER_BEFORE_AFTER_SECTIONS = 10;
 
 // loading items
 $DEFAULT_ITEMS_PER_LOAD_MORE_FOR_REVIEWS = 3;

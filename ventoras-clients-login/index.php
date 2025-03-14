@@ -81,18 +81,14 @@ $is_someone_logged_in = is_someone_logged_in();
                         <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
                     </form>
 
-                <?php } else { ?>
-                    <div class="text-center">
-                        <h2>You're already logged in</h2>
-                        <p>Visit the Home Page to Manage your Content</p>
-                        <button class="btn btn-primary loginredirectbtn"><a href="http://localhost/tailoredsweep/ventoras-clients-login/home.php">Go to Home Page</a></button>
-                    </div>
-                <?php } ?>
+                <?php } else {
+                    readfile('php/alreadyloggedin.html');
+                } ?>
             </div>
         </div>
     </div>
 
-    
+
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/main.js"></script>
 </body>

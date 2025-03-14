@@ -7,6 +7,8 @@ $(document).ready(function() {
         var file = this.files[0];
         if (file) {
 
+
+            $("#profilePictureUploadFrontBtn").html("Uploading...");
             $("#profilePictureUploadFrontBtn").prop("disabled", true);
             var formData = new FormData();
             // let review_id = $("input[name='review_id']").val();
@@ -26,7 +28,9 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(response) {
 
+                    $("#profilePictureUploadFrontBtn").html("Change Picture");
                     $("#profilePictureUploadFrontBtn").prop("disabled", false);
+
                     if (response.success) {
                         //update the profilePicture with the newly uploaded image
                         $('#profilepictureimg').attr('src', response.image_link);
@@ -48,7 +52,9 @@ $(document).ready(function() {
     $("#saveChanges").click(function(e) {
         e.preventDefault(); // Prevent form submission
 
+        $("#saveChanges").html("Saving Changes...");
         $("#saveChanges").prop("disabled", true);
+        $("#deleteReview").prop("disabled", true);
 
         // Get form values
         let review_id = $("input[name='review_id']").val();
@@ -79,6 +85,7 @@ $(document).ready(function() {
 
         // formData.append('review_id', review_id);
 
+        
         $.ajax({
             url: 'update_review.php',
             type: 'POST',
@@ -87,7 +94,9 @@ $(document).ready(function() {
             processData: false,
             dataType: 'json',
             success: function(response) {
+                $("#saveChanges").html("Save Changes");
                 $("#saveChanges").prop("disabled", false);
+                $("#deleteReview").prop("disabled", false);
 
                 if (response.success) {
                     showPopup("success", "Changes saved successfully.");

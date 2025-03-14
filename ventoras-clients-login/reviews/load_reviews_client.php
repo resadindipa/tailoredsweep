@@ -22,6 +22,12 @@ $number_of_items = mysqli_num_rows($result);
 if ($number_of_items > 0) {
     for ($i = 0; $i < $number_of_items; $i++) {
 
+        $final_profile_picture_link = $PROFILE_PICTURE_LINK_BASE . $DEFAULT_PROFILE_PICTURE_BG_IMAGE;
+        //print the two col-md-6
+        if ($all_results[$i]['review_profilepicture'] != '') {
+            $final_profile_picture_link =  $PROFILE_PICTURE_LINK_BASE . $all_results[$i]['review_profilepicture'];
+        }
+
         // var_dump($all_results[$i]);
         //Select every other element
         if ($i % 2 == 0) {
@@ -34,11 +40,7 @@ if ($number_of_items > 0) {
 
             echo "<div class='row'>";
 
-            $final_profile_picture_link = $PROFILE_PICTURE_LINK_BASE . $DEFAULT_PROFILE_PICTURE_BG_IMAGE;
-            //print the two col-md-6
-            if ($all_results[$i]['review_profilepicture'] != '') {
-                $final_profile_picture_link =  $PROFILE_PICTURE_LINK_BASE . $all_results[$i]['review_profilepicture'];
-            }
+
             //print the two col-md-6
         }
 ?>

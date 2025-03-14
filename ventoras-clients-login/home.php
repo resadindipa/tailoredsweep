@@ -92,6 +92,11 @@ if ($someone_logged_in) {
                         <h4 class="section-item-title"><a href="projects/">Manage Projects</a></h4>
                         <p class="section-item-desc text-muted">View, edit, and manage Projects</p>
                     </li>
+                    <hr>
+                    <li class="mt-3">
+                        <h4 class="section-item-title"><a href="beforeafter/">Manage Before & After Images</a></h4>
+                        <p class="section-item-desc text-muted">View, edit, and manage Before & After Images</p>
+                    </li>
                 </ul>
             </div>
         </div>
