@@ -22,6 +22,7 @@ $(document).ready(function() {
         window.location = $(this).find('a').attr("href");
     });
 
+
     // $(document).ready(function() {
     $('.img-bna-div-container').each(function(index) {
         let container = $(this);
@@ -33,12 +34,26 @@ $(document).ready(function() {
         //i is starting from 2, because 1st initial div with image is already in HTML code
         for (var i = 2; i <= totalPairs; i++) {
             for (let g = 1; g <= 2; g++) {
+
+
+                let classString = "";
+                if (g == 1) {
+                    classString = "section-item-side-com-img-list-item section-item-side-com-img-list-item-before";
+                } else {
+                    classString = "section-item-side-com-img-list-item section-item-side-com-img-list-item-after";
+                }
                 let beforeorAfterImagesDiv = container.find('.img-bna-' + g);
                 var div = $('<div></div>')
-                    .addClass('section-item-side-com-img-list-item')
-                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.webp')`)
+                    .addClass(classString)
+                    .css("display", "none")
+                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/image.php?domain=tailoredsweep.com&section=${BnASectionNumber}&pair=${i}&side=${g}')`)
+                    // .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.webp')`)
                     .css('height', '100%');
+
+                // await new Promise(resolve => setTimeout(resolve, 1000));
+
                 beforeorAfterImagesDiv.append(div);
+
 
 
                 let index2 = 0;
@@ -49,6 +64,7 @@ $(document).ready(function() {
                     // divs.hide(); // Hide all divs
                     // divs.eq(index2).show(); // Show the current div
                     divs.css("height", "0%");
+                    // divs.eq(index2).css("display", "block");
                     divs.eq(index2).css("height", "100%");
                     index2 = (index2 + 1) % totalDivs; // Move to the next index, cycling back to 0
                 }
@@ -57,11 +73,57 @@ $(document).ready(function() {
                 divs.css("height", "0%");
                 showNextDiv(); // Show the first div
                 setInterval(showNextDiv, 3000); // Repeat every 3 seconds
+
+                $("#main-section-btn-2").click(function(e) {
+                    showNextDiv();
+                });
             }
 
         }
 
     });
+
+
+    let itemsbefore = $('.section-item-side-com-img-list-item-before');
+    let itemsafter = $('.section-item-side-com-img-list-item-after');
+
+    let itemsbeforeArray = [];
+    let itemsafterArray = [];
+
+    for (let index = 1; index < ($('.section-item-side-com-img-list-item').length) / 2; index++) {
+        // const element = array[index];
+        itemsbeforeArray.push(itemsbefore[index]);
+        itemsafterArray.push(itemsafter[index]);
+
+        setTimeout(() => {
+            console.log("Before Image Loading - " + index + "---" + $(itemsbefore[index]).css("background-image"));
+            $(itemsbefore[index]).css('display', 'block');
+            console.log("After Image Loading - " + index + "---" + $(itemsafter[index]).css("background-image"));
+            $(itemsafter[index]).css('display', 'block');
+        }, index * 500);
+    }
+
+
+    // items.each(function(index) {
+    //     if (index > 0) {
+    //         itemsbeforeArray.push(itemsbefore[index]);
+    //         setTimeout(() => {
+    //             console.log("Before Image Loading - " + index + "---" + $(this).css("background-image"));
+    //             // $(this).css('display', 'block');
+    //         }, index * 500);
+    //     }
+    // });
+
+    // items = $('.section-item-side-com-img-list-item-after');
+
+    // items.each(function(index) {
+    //     if (index > 0) {
+    //         setTimeout(() => {
+    //             console.log("After Image Loading - " + index + "---" + $(this).css("background-image"));
+    //             // $(this).css('display', 'block');
+    //         }, index * 500);
+    //     }
+    // });
 
 
     let screenWidth = screen.width;
