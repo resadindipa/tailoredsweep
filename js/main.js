@@ -276,8 +276,8 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             async: false,
-            // url: "https://www.ventoras.com/ventoras-clients-login/reviews/load_reviews_client.php",
-            url: "http://localhost/tailoredsweep/ventoras-clients-login/reviews/load_reviews_client.php",
+            url: "https://www.ventoras.com/ventoras-clients-login/reviews/load_reviews_client.php",
+            // url: "http://localhost/tailoredsweep/ventoras-clients-login/reviews/load_reviews_client.php",
             data: { website: "tailoredsweep.com" },
             success: function(data) {
                 if (!isValidJSON(data)) {
@@ -312,8 +312,8 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             async: false,
-            // url: "https://www.ventoras.com/ventoras-clients-login/projects/load_projects_client.php",
-            url: "http://localhost/tailoredsweep/ventoras-clients-login/projects/load_projects_client.php",
+            url: "https://www.ventoras.com/ventoras-clients-login/projects/load_projects_client.php",
+            // url: "http://localhost/tailoredsweep/ventoras-clients-login/projects/load_projects_client.php",
             data: { website: "tailoredsweep.com" },
             success: function(data) {
                 if (!isValidJSON(data)) {
