@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     $('#profilePictureUpload').change(function() {
         var file = this.files[0];
-        if (file) {
+        if (file && file.size < 10485760) {
 
 
             $("#profilePictureUploadFrontBtn").html("Uploading...");
@@ -47,6 +47,8 @@ $(document).ready(function() {
                     showPopup("error", "Profile Picture not Changed.");
                 }
             });
+        } else {
+            showPopup("error", "Image file can't be larger than 10MB.");
         }
     });
     $("#saveChanges").click(function(e) {
@@ -85,7 +87,7 @@ $(document).ready(function() {
 
         // formData.append('review_id', review_id);
 
-        
+
         $.ajax({
             url: 'update_review.php',
             type: 'POST',

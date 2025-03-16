@@ -15,6 +15,9 @@ $profile_picture = $_FILES['profile_picture'];
 $uploadDir = dirname(__DIR__) . '/uploads/tmp_profile_pictures/';
 // $uploadDir = '../uploads/profile_pictures/';
 
+if($profile_picture['size'] > 10485760){
+    print_update_status(false, "toobig");
+}
 // Ensure the directory exists
 if (!file_exists($uploadDir)) {
     mkdir($uploadDir, 0777, true);

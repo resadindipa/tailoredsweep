@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     $('#profilePictureUpload').change(function() {
         var file = this.files[0];
-        if (file) {
+        if (file && file.size < 10485760) {
             var formData = new FormData();
 
             $("#profilePictureUploadFrontBtn").prop("disabled", true);
@@ -51,6 +51,8 @@ $(document).ready(function() {
                     showPopup("error", "Profile Picture not Added.");
                 }
             });
+        } else  {
+            showPopup("error", "Image file can't be larger than 10MB.");
         }
 
         if ($('#profilePictureUpload')[0].files[0] != undefined) {
