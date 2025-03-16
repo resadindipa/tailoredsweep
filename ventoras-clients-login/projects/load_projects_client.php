@@ -6,7 +6,32 @@ include '../php/config.php';
 //     print_update_status_basic_layout(false, "missingparams");
 // } else {
 // $client_id = $_GET['client'];
-$client_id = "8upzqc0c8zacsk4wg5ua";
+if (!isset($_POST['website'])) {
+    print_update_status_basic_layout(false, "missingparams");
+}
+
+$client_website = $_POST['website'];
+$query = "SELECT id FROM users WHERE website = ? LIMIT 1";
+$stmt = mysqli_prepare($link, $query);
+
+$client_id = "";
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $client_website); // Assuming $website is the variable holding the website value
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_row($result);
+        $client_id = $row[0]; //mysqli_fetch_row returns an numerically indexed array, not an associative array
+    }
+} 
+
+if($client_id == ""){
+    print_update_status_basic_layout(false, "error");
+}
+
+// $client_id = "8upzqc0c8zacsk4wg5ua";
 
 
 // Secure SQL query using prepared statements

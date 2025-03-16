@@ -142,6 +142,9 @@ $(document).ready(function() {
                     },
                     error: function() {
 
+                        $('#addnewimageinput').val('');
+                        $("#addnewimagebtn").prop("disabled", false);
+                        $("#addnewimagebtn").html("Add Images");
                         updatePhotoError("Something's wrong, Image not added");
                         return;
                     }

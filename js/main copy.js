@@ -55,6 +55,7 @@ $(document).ready(function() {
                 beforeorAfterImagesDiv.append(div);
 
 
+
                 let index2 = 0;
                 let divs = beforeorAfterImagesDiv.find('div'); // Select all divs inside .img-bna-1
                 let totalDivs = divs.length;
@@ -89,70 +90,11 @@ $(document).ready(function() {
     let itemsbeforeArray = [];
     let itemsafterArray = [];
 
-    let itemsAllArray = [itemsbeforeArray, itemsafterArray];
     //index is starting from +1 because 0 (the first image) is alreayd being loaded from the HTML code
     for (let index = 1; index < ($('.section-item-side-com-img-list-item').length) / 2; index++) {
         // const element = array[index];
-
-
-        itemsAllArray[0].push(itemsbefore[index]);
-        itemsAllArray[1].push(itemsafter[index]);
-
-
-        // function getSubstringAfterWord(text, word) {
-        //     let index = text.indexOf(word);
-        //     if (index !== -1) {
-        //         return text.substring(index + word.length); // Get substring after the word
-        //     }
-        //     return ""; // Return empty if word is not found
-        // }
-        // let word = "https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/image.php?domain=tailoredsweep.com&";
-
-        // setTimeout(() => {
-
-
-        // function loadImage(attempt = 0, maxAttempts = 6) {
-        //     // for (let g = 0; g < 2; g++) {
-        //     g = 0;
-        //     let backgroundImage = $(itemsAllArray[g][index - 1]).css("background-image")
-        //         // let backgroundImage = element.css('background-image');
-
-        //     // Extract URL from background-image: url("...")
-
-        //     let imageUrl = backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-        //     let img = new Image();
-        //     img.src = imageUrl;
-
-        //     if (attempt == 0) {
-        //         console.log("Trying to load the image: " + getSubstringAfterWord(imageUrl, word));
-        //     } else {
-        //         console.log(`Re-loading image ${attempt}` + getSubstringAfterWord(imageUrl, word));
-        //     }
-
-        //     img.onload = function() {
-        //         console.warn(`Background image loaded with ${attempt}: ${getSubstringAfterWord(imageUrl, word)} `);
-        //         if (attempt == 0) {
-        //             $(itemsAllArray[g][index - 1]).css('display', 'block'); // Show the element after successful load
-        //         } else {
-
-        //         }
-        //     };
-
-        //     img.onerror = function() {
-        //         console.error(`Failed to load background image: ${getSubstringAfterWord(imageUrl, word)}, Index ${index}, Attempt ${attempt + 1} of ${maxAttempts}`);
-
-        //         if (attempt < maxAttempts) {
-        //             setTimeout(() => {
-        //                 loadImage(attempt + 1, maxAttempts);
-        //             }, 1000); // Retry after 2 seconds
-        //         } else {
-        //             console.error(`Max retries reached for: ${getSubstringAfterWord(imageUrl, word)}`);
-        //         }
-        //     };
-        //     // }
-        // }
-        // loadImage(0, 6, index);
-        // }, index * 500);
+        itemsbeforeArray.push(itemsbefore[index]);
+        itemsafterArray.push(itemsafter[index]);
 
         setTimeout(() => {
             console.log("Before Image Loading - " + index + "---" + $(itemsbefore[index]).css("background-image"));
@@ -276,20 +218,15 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             async: false,
-            // url: "https://www.ventoras.com/ventoras-clients-login/reviews/load_reviews_client.php",
-            url: "http://localhost/tailoredsweep/ventoras-clients-login/reviews/load_reviews_client.php",
-            data: { website: "tailoredsweep.com" },
+            url: "https://www.ventoras.com/ventoras-clients-login/reviews/load_reviews_client.php",
+            data: { page: "s" },
             success: function(data) {
-                if (!isValidJSON(data)) {
-                    if (data.trim() !== "endofresults") {
-                        // console.log(data);
-                        $("#reviews-carousel-inner").append(data);
-                    } else {
-                        console.log("Something Happened", data);
-                        // $("#load-more").hide();
-                    }
+                if (data.trim() !== "endofresults") {
+                    // console.log(data);
+                    $("#reviews-carousel-inner").append(data);
                 } else {
-                    $("#reviews-section-item").hide();
+                    console.log("Something Happened", data);
+                    // $("#load-more").hide();
                 }
             },
             error: function(data) {
@@ -312,20 +249,15 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             async: false,
-            // url: "https://www.ventoras.com/ventoras-clients-login/projects/load_projects_client.php",
-            url: "http://localhost/tailoredsweep/ventoras-clients-login/projects/load_projects_client.php",
-            data: { website: "tailoredsweep.com" },
+            url: "https://www.ventoras.com/ventoras-clients-login/projects/load_projects_client.php",
+            data: { page: "s" },
             success: function(data) {
-                if (!isValidJSON(data)) {
-                    if (data.trim() !== "endofresults") {
-                        // console.log(data);
-                        $("#projects-carousel-inner").append(data);
-                    } else {
-                        console.log("Something Happened", data);
-                        // $("#load-more").hide();
-                    }
+                if (data.trim() !== "endofresults") {
+                    // console.log(data);
+                    $("#projects-carousel-inner").append(data);
                 } else {
-                    $("#projects-section-item").hide();
+                    console.log("Something Happened", data);
+                    // $("#load-more").hide();
                 }
             },
             error: function(data) {
@@ -438,15 +370,6 @@ $(document).ready(function() {
         }
 
     });
-
-    function isValidJSON(str) {
-        try {
-            JSON.parse(str);
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }
 
 
     function IsEmail(email) {
