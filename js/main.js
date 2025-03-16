@@ -71,7 +71,7 @@ $(document).ready(function() {
                 // divs.hide(); // Initially hide all divs
                 divs.css("height", "0%");
                 showNextDiv(); // Show the first div
-                // setInterval(showNextDiv, 3000); // Repeat every 3 seconds
+                setInterval(showNextDiv, 3000); // Repeat every 3 seconds
 
                 $("#main-section-btn-2").click(function(e) {
                     showNextDiv();

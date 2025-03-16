@@ -2,18 +2,6 @@
 // Introduce a delay (simulates loading time)
 // sleep(1);
 
-
-if(isset($_GET['testerror'])){
-    if (rand(0, 1) === 0) {
-        http_response_code(500); // Internal Server Error
-        // echo json_encode(["error" => "Simulated server failure. Try again."]);
-        exit;
-    }
-    
-    // If success
-    http_response_code(200);
-}
-
 // Get parameters from the URL
 $domain = isset($_GET['domain']) ? preg_replace('/[^a-zA-Z0-9.-]/', '', $_GET['domain']) : ''; // Sanitize domain
 $section = isset($_GET['section']) ? intval($_GET['section']) : 0;
@@ -37,7 +25,7 @@ if (!file_exists($imagePath)) {
 
 // Set correct headers for WebP images
 header("Content-Type: image/webp");
-// header("Cache-Control: max-age=86400, public"); // Cache for 1 day
+header("Cache-Control: max-age=86400, public"); // Cache for 1 day
 
 // Serve the image
 readfile($imagePath);
