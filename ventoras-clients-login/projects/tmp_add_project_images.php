@@ -11,6 +11,9 @@ include '../php/config.php';
 
 $project_image = $_FILES['project_image'];
 
+if($project_image['size'] > 10485760){
+    print_update_status(false, "toobig");
+}
 
 $uploadDir = dirname(__DIR__) . '/uploads/tmp_project_images/';
 // $uploadDir = '../uploads/profile_pictures/';

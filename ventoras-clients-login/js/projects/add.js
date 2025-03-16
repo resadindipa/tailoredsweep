@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         } else {
             var file = this.files[0];
-            if (file) {
+            if (file && file.size < 10485760) {
                 var formData = new FormData();
 
                 formData.append('project_image', file);
@@ -149,6 +149,9 @@ $(document).ready(function() {
                         return;
                     }
                 });
+            } else {
+                updatePhotoError("Image File can't be larger than 10MB");
+                return;
             }
 
         }
