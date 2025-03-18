@@ -114,15 +114,21 @@ $(document).ready(function() {
 
     $("#addnewpairimage_1").change(function() {
         var file = this.files[0];
-        if (file) {
+        if (file && file.size < 8388608) {
             uploadTempImage("1", file, "#pair-new-image-before", "#addnewpairimage_1");
+        } else {
+            updateAddNewImageError("Image File size should be smaller than 8mb");
+            return;
         }
     });
 
     $("#addnewpairimage_2").change(function() {
         var file = this.files[0];
-        if (file) {
+        if (file && file.size < 8388608) {
             uploadTempImage("2", file, "#pair-new-image-after", "#addnewpairimage_2");
+        } else {
+            updateAddNewImageError("Image File size should be smaller than 8mb");
+            return;
         }
     });
 
@@ -311,12 +317,12 @@ $(document).ready(function() {
 
         } else {
             var file = this.files[0];
-            if (file) {
+            if (file && file.size < 8388608) {
                 var formData = new FormData();
                 formData.append('pair_image', file);
                 formData.append('pair_section', beforeAfterImageSectionID);
                 formData.append('pair_num', currentlyUpdatingImagePair);
-                formData.append('pair_image_ba', currentlyUpdatingImageBeforeOrAfter);
+                formData.append('pair_beforeorafter', currentlyUpdatingImageBeforeOrAfter);
 
 
                 let lastClickedReplaceButtonForThisRequest = lastClickedReplaceButton;
@@ -325,7 +331,7 @@ $(document).ready(function() {
                 lastClickedReplaceButton.prop("disabled", true);
 
                 $.ajax({
-                    url: 'tmp_add_beforeafter_images.php',
+                    url: 'update_beforeafter_image.php',
                     type: 'POST',
                     data: formData,
                     contentType: false,
@@ -362,7 +368,11 @@ $(document).ready(function() {
                         return;
                     }
                 });
+            } else {
+                updateAddNewImageError("Image File size should be smaller than 8mb");
+                return;
             }
+
 
         }
 
@@ -512,7 +522,7 @@ $(document).ready(function() {
 
 
         button.prop("disabled", true);
-        button.html("Deleting Review...");
+        button.html("Deleting Pair...");
 
         var formData = new FormData();
         formData.append('pair_section', beforeAfterImageSectionID);

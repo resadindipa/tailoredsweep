@@ -1,0 +1,32 @@
+/* Hide the original 'choose file' button of input[type='file'] */
+#profilePictureUpload{
+    display: none;
+}
+
+.action-btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#editReviewForm{
+    text-align: left;
+}
+@media only screen and (max-width:576px) {
+    .action-btn-group {
+        display: block;
+    }
+    button#saveChanges,
+    a#cancelEdit,
+    button#deleteReview {
+        width: 100%;
+        padding: 10px 0;
+    }
+    .save-changes-btn-group a,
+    .save-changes-btn-group button {
+        margin-bottom: 5px;
+    }
+    button#deleteReview {
+        margin-top: 20px;
+    }
+}

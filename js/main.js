@@ -11,11 +11,48 @@ $(document).ready(function() {
         }, 1200);
     });
 
-    // console.log("dssdsd");
-    // $(".projects-item-img").click(function() {
-    //     console.log("clicked " + $(this).find('a').attr("href"));
-    //     window.location = $(this).find('a').attr("href");
-    // });
+    let pairsArray = [3, 3];
+
+    // let pairsArray = [];
+
+    // function sendBeforeAfterPairsCount(attempt = 0, maxAttempts = 3) {
+    //     $.ajax({
+    //         type: "POST",
+    //         async: false,
+    //         dataType: "json",
+    //         // url: "https://www.ventoras.com/ventoras-clients-login/beforeafter/pairs_client.php",
+    //         url: "http://localhost/tailoredsweep/ventoras-clients-login/beforeafter/pairs_client.php",
+    //         data: { domain: "tailoredsweep.com" },
+    //         success: function(data) {
+    //             if (data.error) {
+    //                 console.error("Error:", data.error);
+    //                 return;
+    //             }
+
+    //             // Get the number of sections
+    //             let numSections = data.length;
+    //             console.log("Number of Sections:", numSections);
+
+    //             // Create an array of pairs count
+    //             pairsArray = data.map(section => section.pairs);
+    //             console.log("Pairs Array:", pairsArray);
+    //         },
+    //         error: function(data) {
+    //             if (attempt < maxAttempts) {
+    //                 let retryDelay = 2000;
+    //                 // console.log(`Retrying in ${retryDelay / 1000} seconds...`);
+
+    //                 setTimeout(() => {
+    //                     sendBeforeAfterPairsCount(attempt + 1, maxAttempts);
+    //                 }, retryDelay);
+    //             } else {
+    //                 // console.error("Max retry attempts reached. Request failed.");
+    //             }
+    //         }
+    //     });
+    // }
+
+    // sendBeforeAfterPairsCount();
 
     $(document).on("click", ".projects-item-img", function() {
         // console.log("clicked " + $(this).find('a').attr("href"));
@@ -32,7 +69,9 @@ $(document).ready(function() {
 
 
         //i is starting from 2, because 1st initial div with image is already in HTML code
+        // for (var i = 2; i <= pairsArray[index]; i++) {
         for (var i = 2; i <= totalPairs; i++) {
+
             for (let g = 1; g <= 2; g++) {
 
 

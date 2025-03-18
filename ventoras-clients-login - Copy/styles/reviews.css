@@ -1,0 +1,102 @@
+.review-item {
+    margin-bottom: 50px;
+}
+
+.review-divider {
+    display: flex;
+}
+
+.review-profile-picture {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: #d6d6d6;
+    background-size: cover;
+    background-position: center;
+}
+
+.review-profile-desc {
+    display: flex;
+    margin-left: 20px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.review-profile-desc-texts {
+    width: fit-content;
+}
+
+.review-profile-desc .review-name,
+.review-profile-desc .review-date {
+    margin: 0;
+}
+
+.review-name {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.review-desc {
+    margin-top: 15px;
+    line-height: 30px;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 525px) {
+    .review-profile-desc {
+        display: block;
+        width: fit-content;
+    }
+    button.btn.btn-secondary.edit-btn {
+        margin-top: 10px;
+    }
+    .review-name {
+        font-size: 4.5vw;
+    }
+    .review-desc {
+        line-height: 7vw;
+    }
+    .btn a {
+        font-size: 4vw;
+    }
+    .review-date,
+    .review-desc {
+        font-size: 4.2vw;
+        max-height: 21vw;
+    }
+}
+
+
+/* .review-card {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}  
+    
+a{
+    color: white!important;
+    text-decoration: none!important;
+} 
+    
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-size: cover;
+    background-color: grey;
+    background-size: cover;
+    background-position: center;
+}
+
+hr {
+    margin: 15px 0;
+} */

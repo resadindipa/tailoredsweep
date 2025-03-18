@@ -13,6 +13,12 @@ if (!(ctype_digit($_POST['pair_section'])) && !(ctype_digit($_POST['pair_beforeo
 if ($_POST['pair_beforeorafter'] != "1" && $_POST['pair_beforeorafter'] != "2") {
     print_update_status(false, "error3");
 }
+$pair_image = $_FILES['pair_image'];
+
+if($pair_image['size'] > 8388608){
+    print_update_status(false, "toolarge");
+}
+
 // Database connection
 include '../php/config.php';
 
@@ -24,7 +30,7 @@ if (is_someone_logged_in() != true) {
 //get the user's website domain and check if the B&A Section actually exists for him
 $userid_session = $_SESSION['ui'];
 
-$pair_image = $_FILES['pair_image'];
+
 
 $uploadDirBase = dirname(__DIR__) . '/uploads/tmp_beforeafter_images/';
 
@@ -76,7 +82,7 @@ try {
     $imagick->cropImage($cropWidth, $cropHeight, 0, $yOffset);
 
     // Optional: Resize if needed
-    $dividingFactor = 2.5;
+    $dividingFactor = 4;
     $imagick->resizeImage(1920 / $dividingFactor, 1080 / $dividingFactor, Imagick::FILTER_LANCZOS, 1); // Example resize to 1920x1080
 
     // Convert to WebP format
