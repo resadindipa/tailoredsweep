@@ -6,9 +6,11 @@ $(document).ready(function() {
         $('#nav-bar-toggle-close').click();
 
         var targetId = $(this).attr('data-scroll');
-        $('html, body').animate({
-            scrollTop: $("#" + targetId).offset().top
-        }, 1200);
+        if(targetId != ""){
+            $('html, body').animate({
+                scrollTop: $("#" + targetId).offset().top
+            }, 1200);
+        }
     });
 
     let pairsArray = [3, 3];

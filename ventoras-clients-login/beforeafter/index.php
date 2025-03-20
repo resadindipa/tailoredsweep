@@ -40,15 +40,14 @@ $someone_logged_in = is_someone_logged_in();
             </div>
         </nav>
 
-
         <!-- <br> -->
         <div class="main-container-outer">
             <div class="main-container">
                 <div class="main-container-header">
                     <h2 class="main-container-title">Before & After Images</h2>
-                    <div>
+                    <div id="form-error-div" style="display: none;">
                         <br>
-                        <div class="alert alert-danger" id="form-error" style="display: none;">Your website doesn't have any Before & After Image Sections</div>
+                        <div class="alert alert-danger" id="form-error">Your website doesn't have any Before & After Image Sections</div>
                         <br>
                     </div>
 

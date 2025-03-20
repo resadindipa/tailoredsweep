@@ -25,10 +25,10 @@
 </head>
 
 <body>
-    <div class="nav-bar nav-bar-1">
+    <div class="nav-bar nav-bar-1" data-switched="0">
         <div class="nav-bar-content">
-            <img id="light-logo" class="action-btn navbar-navigate-link" data-scroll="" data-page="index.html" src="contents/images/logowithtext.svg" alt="">
-            <img id="dark-logo" class="action-btn navbar-navigate-link" data-scroll="" src="contents/images/whitetextlogo2.svg" alt="">
+            <img id="dark-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" data-page="index.html" src="contents/images/logowithtext.svg" alt="">
+            <img id="light-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" src="contents/images/logowithtextwhite.svg" alt="">
             <div class="nav-bar-left">
                 <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="services-section-item">Services</p>
                 <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="reviews-section-item">Reviews</p>
@@ -38,7 +38,10 @@
                 <p class="action-btn navbar-navigate-link" id="nav-bar-contact-us" data-page="index.html" data-scroll="contact-us-section-item">Contact us</p>
             </div>
 
-            <img src="contents/images/navbaricon.svg" alt="" id="nav-bar-toggle">
+            <div id="nav-bar-toggle-div">
+                <img src="contents/images/navbaricon.svg" alt="" id="nav-bar-toggle">
+                <img src="contents/images/navbariconwhite.svg" style="display: none;" alt="" id="nav-bar-toggle-white">
+            </div>
         </div>
     </div>
 

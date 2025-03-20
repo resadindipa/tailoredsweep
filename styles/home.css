@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 
-.img-bna-div-label{
+.img-bna-div-label {
     margin: 0;
     font-weight: 700;
     color: white;
@@ -101,8 +101,6 @@ img {
     -ms-user-select: none;
 }
 
-
-
 .nav-bar {
     /* padding: 10px 30px; */
     height: var(--navbar-height);
@@ -133,8 +131,11 @@ img {
 
 /* navbar toggle  */
 
-#nav-bar-toggle {
+#nav-bar-toggle-div {
     display: none;
+}
+
+#nav-bar-toggle-div img {
     cursor: pointer;
     width: 22px;
 }
@@ -199,12 +200,21 @@ div#indipa {
 }
 
 .nav-bar-white {
-    background-color: white!important;
+    background-color: #3973c2 !important;
     position: fixed;
     transition-duration: 0.5s;
     top: 0;
-    border-bottom: 1px solid #6464644a;
+    /* border-bottom: 1px solid #6464644a; */
     width: 100%;
+}
+
+.nav-bar-white p.navbar-navigate-link {
+    color: white!important;
+}
+
+.nav-bar-white #nav-bar-contact-us {
+    background: white!important;
+    color: #51ADE5!important;
 }
 
 
@@ -217,7 +227,7 @@ div#indipa {
     display: block!important;
 } */
 
-#dark-logo {
+#light-logo {
     display: none;
 }
 
@@ -299,6 +309,8 @@ div#indipa {
 
 
 /* home4.css code */
+
+
 /* header section */
 
 #header-section-item {
@@ -324,6 +336,7 @@ div#indipa {
     margin: 0!important;
     padding: 50px 0;
 }
+
 
 /* main section  */
 
@@ -547,7 +560,7 @@ div#indipa {
 }
 
 #why-choose-us-section-item .num-item-cell-div {
-    border: none;
+    border: 1px solid #d4d4d4;
     background-color: white;
 }
 
@@ -611,7 +624,9 @@ div#indipa {
     margin: 0;
 }
 
+
 /* home6.css code start */
+
 .num-item-cell-img {
     width: 100%;
     height: 100%;
@@ -634,10 +649,11 @@ div#indipa {
     width: 40%;
 }
 
-
 .contact-section-form {
     padding: 0 15px!important;
 }
+
+
 /* home6.css code end */
 
 .osc-btn {
@@ -870,6 +886,7 @@ div#indipa {
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
+    border: 1px solid #00000024;
 }
 
 .faq-item-width {
@@ -1046,7 +1063,6 @@ div#indipa {
 }
 
 
-
 /* contact method items including the main and sub-units */
 
 
@@ -1176,7 +1192,7 @@ div#indipa {
 /* footer's first row */
 
 .footer-logo {
-    width: 200px;
+    width: 170px;
 }
 
 .ventoras-tagline {
@@ -1187,6 +1203,9 @@ div#indipa {
 
 .footer-social-media {
     float: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .footer-social-media-title {
@@ -1194,6 +1213,7 @@ div#indipa {
     color: white;
     text-align: right;
     font-weight: 600;
+    margin-bottom: 0!important;
     margin-top: 0!important;
 }
 
@@ -1202,7 +1222,7 @@ div#indipa {
 }
 
 .footer-1-row-col-top {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .footer-social-media img {
@@ -1281,8 +1301,8 @@ div#indipa {
 }
 
 
-
 /* popup */
+
 
 /* Fullscreen dark overlay */
 

@@ -46,17 +46,50 @@ $(document).ready(function() {
         var scroll_pos_test = 250; // set to whatever you want it to be
 
         if (y_scroll_pos > scroll_pos_test) {
-            //do stuff
-            $('.nav-bar-1').attr('class', 'nav-bar nav-bar-1 nav-bar-white')
-                // $('#nav-bar-toggle').attr('src', 'contents/images/navbaricon.svg')
+            //check if it's already in the nav-bar-white mode
+            if($(".nav-bar-1").attr('data-switched') == "0"){
+                $('.nav-bar-1').attr('class', 'nav-bar nav-bar-1 nav-bar-white')
+
+                //main logo toggling
+                $("#dark-logo").hide();
+                $("#light-logo").show();
+
+                //three lines for mobile view switch
+                $("#nav-bar-toggle").hide();
+                $("#nav-bar-toggle-white").show();
+                
+                $('.nav-bar-1').attr('data-switched', '1');
+            } else {
+                //it's already switched
+            }
         } else {
-            $('.nav-bar-1').attr('class', 'nav-bar nav-bar-1')
-                // $('#nav-bar-toggle').attr('src', 'contents/images/navbaricon.svg')
+
+            //check if it has already switched to the normal mode
+            if($(".nav-bar-1").attr('data-switched') == "1"){
+                $('.nav-bar-1').attr('class', 'nav-bar nav-bar-1');
+
+                //main logo toggling
+                $("#light-logo").hide();
+                $("#dark-logo").show();
+
+                //three lines for mobile view switch
+                $("#nav-bar-toggle").show();
+                $("#nav-bar-toggle-white").hide();
+                
+                $('.nav-bar-1').attr('data-switched', '0');
+            } else {
+                //it's already switched to normal mode
+            }
         }
     }
 
 
     $('#nav-bar-toggle').click(function() {
+        $('#indipa').css('display', "block");
+        $('.nav-bar-toggled').css('top', '20%');
+    });
+
+    $('#nav-bar-toggle-white').click(function (){
         $('#indipa').css('display', "block");
         $('.nav-bar-toggled').css('top', '20%');
     });

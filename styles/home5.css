@@ -130,6 +130,7 @@
     .footer-main {
         padding: 6vw 3vw;
     }
+
     /* header section */
     .main-section .main-section-title {
         font-size: 5vw;
@@ -138,6 +139,10 @@
     /* before vs after image comparison */
     .section-item-side-comp-img-item-left {
         /* margin-bottom: 10px; */
+    }
+    .why-choose-us-section-table {
+        margin-left: 0;
+        margin-right: 0;
     }
     .section-item-side-comp-img-item img {
         width: 100%;
@@ -372,6 +377,12 @@
 }
 
 @media only screen and (max-width: 425px) {
+    .nav-bar {
+        height: 19vw!important;
+    }
+    .header-section {
+        padding-top: 19vw!important;
+    }
     .main-section {
         padding: 0 3vw;
     }
@@ -445,7 +456,7 @@
 }
 
 @media only screen and (max-width: 740px) {
-    #nav-bar-toggle {
+    #nav-bar-toggle-div {
         display: block;
     }
     .nav-bar-left {

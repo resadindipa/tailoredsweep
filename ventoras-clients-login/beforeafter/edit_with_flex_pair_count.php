@@ -11,10 +11,6 @@ if ($someone_logged_in) {
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // Convert to integer for security
 
-        if($id <= 0){
-            print_update_status_basic_layout(false, "error");
-        }
-
 
         $userid_session = $_SESSION['ui'];
 
@@ -26,7 +22,6 @@ if ($someone_logged_in) {
         mysqli_stmt_bind_result($stmt, $numofbeforeaftersections, $beforeafterimagepairs_string, $websitedomain);
         mysqli_stmt_fetch($stmt);
 
-        //verify the section actually exists
         if ($id > 0 &&  $id <= $numofbeforeaftersections) {
 
             //there is an actual before & after image section with this id
@@ -49,9 +44,6 @@ if ($someone_logged_in) {
 // header("Location: index.php");
 //     $no_such_project = true;
 // }
-
-//Change this to switch from 'limited num of pairs' to 'unlimited num of pairs' for before & after images
-$current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
 ?>
 
 <!DOCTYPE html>
@@ -95,6 +87,10 @@ $current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
                     <div class="main-container-header">
                         <h2 class="main-container-title">Before & After Section - <?php echo $id; ?></h2>
 
+                        <button class="btn btn-primary" id="beforeafter-image-add-new-pair-btn" <?php if ($current_sections_pairs_count >= $MAXIMUM_IMAGE_PAIRS_PER_BEFORE_AFTER_SECTIONS) { ?> style="display: none;" <?php } ?>>
+                            <img src="../content/add.svg" alt="Plus Icon" width="16" height="16">
+                            Add a new Image Pair
+                        </button>
                     </div>
 
                     <br>
@@ -160,12 +156,12 @@ $current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
                             </div>
 
 
-                            <!-- <div> -->
-                                <!-- <br>
+                            <div>
+                                <br>
                                 <div class="alert alert-primary mb-0" id="photo-error-1" style="display: none;">You've added 0 out of 10 images per project.</div>
                                 <div class="alert alert-primary mb-0" id="photo-error">You've added 0 out of 10 images per project.</div>
                                 <br>
-                            </div> -->
+                            </div>
 
 
                             <div class="row photos" id="beforeafter-pairs-row">
@@ -176,6 +172,19 @@ $current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
 
                                         <div class="main-container-sub-header">
                                             <h2 class="main-container-sub-title">Pair - 0<?php echo $i; ?></h2>
+
+
+                                            <button class="btn btn-danger beforeafter-pair-item-delete"
+                                                <?php
+                                                #Check if the image pair is the only pair available for this section/ If it is, it can't be deleted 
+                                                if ($current_sections_pairs_count <= 1) { ?>
+                                                style="display: none;"
+                                                <?php } ?>>
+                                                <!-- <img src="../content/add.svg" alt="Plus Icon" width="16" height="16"> -->
+                                                Delete Pair
+                                            </button>
+
+
                                         </div>
 
                                         <div class="row photos">

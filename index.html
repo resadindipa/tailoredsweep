@@ -102,10 +102,10 @@
 
 <body>
 
-    <div class="nav-bar nav-bar-1">
+    <div class="nav-bar nav-bar-1" data-switched="0">
         <div class="nav-bar-content">
-            <img id="light-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" data-page="index.html" src="contents/images/logowithtext.svg" alt="">
-            <img id="dark-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" src="contents/images/whitetextlogo2.svg" alt="">
+            <img id="dark-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" data-page="index.html" src="contents/images/logowithtext.svg" alt="">
+            <img id="light-logo" class="action-btn navbar-navigate-link" data-scroll="nav-bar-top" src="contents/images/logowithtextwhite.svg" alt="">
             <div class="nav-bar-left">
                 <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="services-section-item">Services</p>
                 <p class="action-btn navbar-navigate-link" data-page="index.html" data-scroll="reviews-section-item">Reviews</p>
@@ -115,7 +115,10 @@
                 <p class="action-btn navbar-navigate-link" id="nav-bar-contact-us" data-page="index.html" data-scroll="contact-us-section-item">Contact us</p>
             </div>
 
-            <img src="contents/images/navbaricon.svg" alt="" id="nav-bar-toggle">
+            <div id="nav-bar-toggle-div">
+                <img src="contents/images/navbaricon.svg" alt="" id="nav-bar-toggle">
+                <img src="contents/images/navbariconwhite.svg" style="display: none;" alt="" id="nav-bar-toggle-white">
+            </div>
         </div>
     </div>
 
@@ -190,7 +193,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="section-tab-side-comp-img">
-                        <div class="img-bna-div-container" data-total-pairs="3">
+                        <div class="img-bna-div-container" data-total-pairs="4">
                             <div class="row">
                                 <div class="col-lg-12 col-md-6 col-sm-6 section-item-side-comp-img-item section-item-side-comp-img-item-left section-item-side-com-img-list-item-before img-bna-div img-bna-1">
                                     <div class="section-item-side-com-img-list-item" style="background-image: url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/1/1/1.webp');">
@@ -404,7 +407,7 @@
                             </div>
                         </div> -->
 
-                        <div class="img-bna-div-container" data-total-pairs="3">
+                        <div class="img-bna-div-container" data-total-pairs="4">
                             <div class="row">
                                 <div class="col-lg-12 col-md-6 col-sm-6 section-item-side-comp-img-item section-item-side-comp-img-item-left section-item-side-com-img-list-item-before img-bna-div img-bna-1">
                                     <div class="section-item-side-com-img-list-item" style="background-image: url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/2/1/1.webp');">
@@ -469,11 +472,11 @@
                                 <div class="num-item-cell-div">
                                     <div class="num-item-cell-top-sec">
                                         <h4 class="num-item-cell-top-sec-number">01</h4>
-                                        <div class="osc-btn">
+                                        <!-- <div class="osc-btn">
                                             <div class="osc-btn-div">
                                                 <button class="osc-btn-container"></button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <h2 class="num-item-cell-title">Regular House Maintenance</h2>
                                     <p class="num-item-cell-desc">We provide routine cleaning to keep your home fresh, tidy, and comfortable, ensuring a consistently clean and inviting space.</p>
@@ -485,11 +488,11 @@
                                 <div class="num-item-cell-div">
                                     <div class="num-item-cell-top-sec">
                                         <h4 class="num-item-cell-top-sec-number">02</h4>
-                                        <div class="osc-btn">
+                                        <!-- <div class="osc-btn">
                                             <div class="osc-btn-div">
                                                 <button class="osc-btn-container"></button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <h2 class="num-item-cell-title">Deep Cleaning</h2>
                                     <p class="num-item-cell-desc">Our deep cleaning service tackles built-up dirt and grime, reaching every corner for a refreshed, spotless, and hygienic home.</p>
@@ -501,11 +504,11 @@
                                 <div class="num-item-cell-div">
                                     <div class="num-item-cell-top-sec">
                                         <h4 class="num-item-cell-top-sec-number">03</h4>
-                                        <div class="osc-btn">
+                                        <!-- <div class="osc-btn">
                                             <div class="osc-btn-div">
                                                 <button class="osc-btn-container"></button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <h2 class="num-item-cell-title">Commercial Cleaning</h2>
                                     <p class="num-item-cell-desc">We offer reliable cleaning for offices and businesses, maintaining a professional and welcoming environment for employees.</p>
@@ -517,11 +520,11 @@
                                 <div class="num-item-cell-div">
                                     <div class="num-item-cell-top-sec">
                                         <h4 class="num-item-cell-top-sec-number">04</h4>
-                                        <div class="osc-btn">
+                                        <!-- <div class="osc-btn">
                                             <div class="osc-btn-div">
                                                 <button class="osc-btn-container"></button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <h2 class="num-item-cell-title">Vacate Cleaning</h2>
                                     <p class="num-item-cell-desc">Moving out? Our vacate cleaning ensures your space is left spotless, meeting landlord expectations for a smooth handover. </p>
@@ -533,11 +536,11 @@
                                 <div class="num-item-cell-div">
                                     <div class="num-item-cell-top-sec">
                                         <h4 class="num-item-cell-top-sec-number">05</h4>
-                                        <div class="osc-btn">
+                                        <!-- <div class="osc-btn">
                                             <div class="osc-btn-div">
                                                 <button class="osc-btn-container"></button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <h2 class="num-item-cell-title">End-of-Lease Cleaning</h2>
                                     <p class="num-item-cell-desc">We provide thorough end-of-lease cleaning to help secure your bond refund and leave your rental property in perfect condition.</p>
@@ -549,11 +552,11 @@
                                 <div class="num-item-cell-div">
                                     <div class="num-item-cell-top-sec">
                                         <h4 class="num-item-cell-top-sec-number">06</h4>
-                                        <div class="osc-btn">
+                                        <!-- <div class="osc-btn">
                                             <div class="osc-btn-div">
                                                 <button class="osc-btn-container"></button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <h2 class="num-item-cell-title">Common Area Cleaning</h2>
                                     <p class="num-item-cell-desc">Our common area cleaning keeps shared spaces fresh, tidy, and well-maintained for a clean and welcoming environment every day.</p>
@@ -772,12 +775,9 @@
 
                         <div class="contact-method-main contact-method-item">
                             <div class="section-mid-item-contact">
-                                <div>
-                                    <img src="contents/images/messengericon.png" class="contact-method-main-icon-img">
-                                    <h3>Contact us on Messenger</h3>
-                                    <a href="https://www.facebook.com/tailoredsweep" target="_blank" class="projects-item-desc-btn osc-btn-container"></a>
-
-                                </div>
+                                <img src="contents/images/messengericon.png" class="contact-method-main-icon-img">
+                                <h3>Contact us on Messenger</h3>
+                                <a href="https://www.facebook.com/tailoredsweep" target="_blank" class="projects-item-desc-btn osc-btn-container"></a>
                             </div>
 
                             <!-- <div class="contact-method-main-icon contact-method-icon">
@@ -818,7 +818,7 @@
                             <div class="contact-method-icon">
                                 <div class="section-item-main">
                                     <div class="section-mid-item-contact">
-                                        <img src="contents/images/facebook.svg" alt="">
+                                        <img style="width: 25px;" src="contents/images/facebook.svg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -855,9 +855,9 @@
                             <p class="section-desc">Not on Facebook Messenger? We can still work together! Contact us through this form.</p>
                             <p id="contact-section-success"><span>Message sent Successfully!</span> We'll get back to you within 24 hours.</p>
                             <form action="form/submit.php" class="contact-text-form" method="post">
-                                <input type="text" name="name" class="contact-text-input" placeholder="Name" id="name" required>
-                                <input type="number" name="phonenumber" id="phonenumber" class="contact-text-input" placeholder="Phone Number" required>
-                                <textarea name="message" id="message" class="contact-text-input contact-text-field" cols="30" placeholder="Your message" rows="10" required></textarea>
+                                <input type="text" name="name" maxlength="40" class="contact-text-input" placeholder="Name" id="name" required>
+                                <input type="number" name="phonenumber" maxlength="20" id="phonenumber" class="contact-text-input" placeholder="Phone Number" required>
+                                <textarea name="message" id="message" maxlength="1000" class="contact-text-input contact-text-field" cols="30" placeholder="Your message" rows="10" required></textarea>
                                 <p id="form-error" class="section-heading section-heading-small">- complete all the fields</p>
                                 <input id="submit-form" type="submit" class="contact-text-submit" value="Send message">
                             </form>

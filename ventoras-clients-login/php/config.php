@@ -31,6 +31,7 @@ $TMP_PROJECT_IMAGES_LINK_BASE = "http://localhost/tailoredsweep/ventoras-clients
 $DEFAULT_BASE_LINK_CMS = "http://localhost/tailoredsweep/ventoras-clients-login";
 
 
+
 //Project Images
 $PROJECT_IMAGE_COMPRESSION_QUALITY = 55;
 $PROJECT_IMAGES_MAXIMUM_WIDTH_HEIGHT = 1200;
@@ -40,6 +41,7 @@ $BEFOREAFTER_IMAGES_MAXIMUM_WIDTH_HEIGHT = 1200;
 
 //Before After Images
 $BEFOREAFTER_IMAGE_FILE_NAME_RANDOM_NUM_CHARS = 20;
+$LIMITED_NUM_OF_PAIRS_PER_SECTION = 4;
 
 //Review Profile Picture
 $REVIEW_PROFILE_PICTURE_COMPRESSION_QUALITY = 70;

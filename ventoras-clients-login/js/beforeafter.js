@@ -14,7 +14,8 @@ $(document).ready(function() {
 
             } else {
                 // if (data.message == "nobeforeaftersections") {
-                $("#form-error").show();
+                
+                $("#form-error-div").show();
                 $("#beforeafter-container").hide();
             }
 
