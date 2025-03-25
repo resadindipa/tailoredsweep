@@ -1252,6 +1252,7 @@ div#indipa {
 
 .footer-social-media p a {
     /* color: #FF1A1A!important; */
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
