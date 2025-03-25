@@ -1,8 +1,8 @@
 <?php
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-// header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -24,7 +24,7 @@ if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'], $_POST['webs
     $message = htmlspecialchars($_POST['message']);
     $website = htmlspecialchars($_POST['website']);
 
-    include '../php/config.php';
+    include '../../php/config.php';
 
 
     // Fetch review details using prepared statements
