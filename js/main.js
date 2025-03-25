@@ -458,7 +458,7 @@ $(document).ready(function() {
             $("#submit-form").val("Sending....");
             $("#submit-form").prop("disabled", true);
 
-            $.post("ventoras-clients-login/client-messages/form/submit.php", {
+            $.post("https://www.ventoras.com/ventoras-clients-login/client-messages/form/submit.php", {
                     name: name,
                     phonenumber: phonenumber,
                     message: message,
