@@ -62,7 +62,7 @@ if ($number_of_items > 0) {
         $final_image_link = $PROJECT_IMAGES_LINK_BASE . $DEFAULT_PROJECT_BG_IMAGE;
         //print the two col-md-6
         if ($all_results[$i]['project_highlighted_image'] != '') {
-            $final_image_link =  $PROJECT_IMAGES_LINK_BASE . $all_results[$i]['project_highlighted_image'];
+            $final_image_link =  $HIGHLIGHTED_PROJECT_IMAGES_LINK_BASE . $all_results[$i]['project_highlighted_image'];
         }
 ?>
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

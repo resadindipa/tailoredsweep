@@ -33,6 +33,7 @@ $project_userid = $_SESSION['ui'];
 
 $project_images_folder = dirname(__DIR__) . '/uploads/project_images/';
 $tmp_project_images_folder = dirname(__DIR__) . '/uploads/tmp_project_images/';
+$highlighted_project_images_folder = dirname(__DIR__) . '/uploads/highlighted_project_images/';
 
 // Validate review_date format (expects YYYY-MM-DD)
 if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $project_date)) {
@@ -97,6 +98,7 @@ if ($action_method == "update") {
                         $current_images_per_project = sizeof($project_images_array_from_db);
                     }
 
+
                     //compare the project_images_array from db and the newly uploaded project_images_array
                     $newly_uploaded_images = arrayDifference($project_images_array_from_db, $project_images_array_new);
                     $newly_deleted_images = arrayDifference($project_images_array_new, $project_images_array_from_db);
@@ -131,6 +133,54 @@ if ($action_method == "update") {
                             }
                         }
                     }
+
+                    //Make a resized smaller version of the project_highlighted_image
+                    $highlighted_image_original_path = $project_images_folder . $project_highlighted_image;
+                    $highlighted_image_new_path = $highlighted_project_images_folder . $project_highlighted_image;
+                    if (!file_exists($highlighted_image_new_path)) {
+
+
+                        // Copy the file to the destination instead of move_uploaded_file
+                        if (!copy($highlighted_image_original_path, $highlighted_image_new_path)) {
+                            print_update_status_basic_layout(false, "fileerror");
+                        }
+
+                        try {
+                            // Process the file with Imagick
+                            $imagick = new Imagick($highlighted_image_new_path);
+                            $imagick->autoOrient();
+                            $imagick->setImageFormat('webp');
+
+                            // Get original dimensions
+                            $width = $imagick->getImageWidth();
+                            $height = $imagick->getImageHeight();
+
+                            // Resize with a max width of 320px while maintaining the aspect ratio
+                            if ($width > $HIGHLIGHTED_IMAGE_MAXIMUM_WIDTH) {
+                                $imagick->resizeImage($HIGHLIGHTED_IMAGE_MAXIMUM_WIDTH, 0, Imagick::FILTER_LANCZOS, 1);
+                            }
+
+                            // Apply a balanced compression level
+                            $imagick->setOption('webp:method', '6');
+                            $imagick->setOption('webp:lossless', 'false');
+
+                            $imagick->setOption('webp:quality', '60');
+
+                            $imagick->setOption('webp:alpha-quality', '85');
+                            $imagick->setOption('webp:filter-strength', '60');
+                            $imagick->setOption('webp:auto-filter', 'true');
+                            $imagick->setOption('webp:use-sharp-yuv', 'true');
+
+                            $imagick->writeImage($highlighted_image_new_path);
+                            $imagick->clear();
+                            $imagick->destroy();
+                        } catch (Exception $e) {
+                            print_update_status(false, "error");
+                        }
+
+                        
+                    }
+
 
                     // Prepare the update query
                     $query = "UPDATE projects SET project_title = ?, project_desc = ?, project_date = ?, project_highlighted_image = ?, project_images = ? WHERE id = ?";

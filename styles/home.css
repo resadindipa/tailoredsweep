@@ -554,6 +554,10 @@ div#indipa {
     text-align: left;
 }
 
+.why-choose-us-section-table .num-item-cell-div .row{
+    height: 100%;
+}
+
 #why-choose-us-section-item {
     background-color: #F4F4F4;
     padding: 30px 0;

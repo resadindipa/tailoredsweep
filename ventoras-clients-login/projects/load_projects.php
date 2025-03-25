@@ -42,7 +42,7 @@ if ($number_of_items > 0) {
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-5 project-item-img-sec">
                     <div class="project-item-img" style="<?php if ($row['project_highlighted_image'] != '') {
-                                                                echo "background-image: url('" . $PROJECT_IMAGES_LINK_BASE . $row['project_highlighted_image'] . "');";
+                                                                echo "background-image: url('" . $HIGHLIGHTED_PROJECT_IMAGES_LINK_BASE . $row['project_highlighted_image'] . "');";
                                                             } ?>');"></div>
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-7 project-item-desc-sec">
