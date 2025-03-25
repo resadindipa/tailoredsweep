@@ -554,7 +554,7 @@ div#indipa {
     text-align: left;
 }
 
-.why-choose-us-section-table .num-item-cell-div .row{
+.why-choose-us-section-table .num-item-cell-div .row {
     height: 100%;
 }
 
@@ -1251,7 +1251,7 @@ div#indipa {
 }
 
 .footer-social-media p a {
-    color: #FF1A1A!important;
+    /* color: #FF1A1A!important; */
     text-decoration: none;
     cursor: pointer;
 }
