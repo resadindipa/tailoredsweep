@@ -6,7 +6,7 @@ $(document).ready(function() {
         $('#nav-bar-toggle-close').click();
 
         var targetId = $(this).attr('data-scroll');
-        if(targetId != ""){
+        if (targetId != "") {
             $('html, body').animate({
                 scrollTop: $("#" + targetId).offset().top
             }, 1200);
@@ -461,7 +461,8 @@ $(document).ready(function() {
             $.post("ventoras-clients-login/client-messages/form/submit.php", {
                     name: name,
                     phonenumber: phonenumber,
-                    message: message
+                    message: message,
+                    website: "tailoredsweep.com"
                 },
                 function(data, status) {
 

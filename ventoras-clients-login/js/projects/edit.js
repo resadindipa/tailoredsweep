@@ -172,9 +172,8 @@ $(document).ready(function() {
                             //Add newly uploaded tmp images to the view
                             let popupHtml = `
                             <div class="col-sm-6 col-md-4 col-lg-3 item">
-                                <a href="${image_link}" data-lightbox="photos">
+                                
                                 <img class="img-fluid" src="${image_link}">
-                                </a>
                                 <br><br>
                                 <div class="d-flex justify-content-between dataphotolinkclassitem" data-photo-link="${image_name}">
                                     <button type="button" class="btn btn-danger delete-photo-btn">Delete</button>
