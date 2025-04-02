@@ -181,7 +181,7 @@ $current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
                                         <div class="row photos">
                                             <div class="col-sm-6 col-md-4 col-lg-3 item">
                                                 <div>
-                                                    <div class="beforeafter-image-image-div" style="background-image: url('<?php echo $BEFORE_AFTER_IMAGES_LINK_BASE . $websitedomain . "/" . $id . "/" . $i . "/1.webp"; ?>');"></div>
+                                                    <div class="beforeafter-image-image-div" style="background-image: url('<?php echo $BEFORE_AFTER_IMAGES_LINK_BASE . $websitedomain . "/" . $id . "/" . $i . "/1.webp?v=" . time(); ?>');"></div>
                                                     <!-- <div class="beforeafter-image-image-div"></div> -->
                                                     <br>
                                                     <div class="d-flex justify-content-between align-items-center dataphotolinkclassitem" data-pair-image="<?php echo $i . "/1.webp"; ?>">
@@ -193,7 +193,7 @@ $current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
 
                                             <div class="col-sm-6 col-md-4 col-lg-3 item">
                                                 <div>
-                                                    <div class="beforeafter-image-image-div" style="background-image: url('<?php echo $BEFORE_AFTER_IMAGES_LINK_BASE . $websitedomain . "/" . $id . "/" . $i . "/2.webp"; ?>');"></div>
+                                                    <div class="beforeafter-image-image-div" style="background-image: url('<?php echo $BEFORE_AFTER_IMAGES_LINK_BASE . $websitedomain . "/" . $id . "/" . $i . "/2.webp?v=" . time(); ?>');"></div>
                                                     <br>
                                                     <div class="d-flex justify-content-between align-items-center dataphotolinkclassitem" data-pair-image="<?php echo $i . "/2.webp"; ?>">
                                                         <p class="beforeafter-image-name">After Image</p>

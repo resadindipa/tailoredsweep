@@ -87,7 +87,7 @@ print_update_status(true, "success", $newFileName, $TMP_PROJECT_IMAGES_LINK_BASE
 function print_update_status($success_status, $update_status, $image_name = '', $picturelinkbase = '')
 {
 
-    echo json_encode(['success' => $success_status, 'message' => $update_status, 'image_link' => $picturelinkbase . $image_name, 'image_name' => $image_name]);
+    echo json_encode(['success' => $success_status, 'message' => $update_status, 'image_link' => $picturelinkbase . $image_name . "?t=" . time(), 'image_name' => $image_name]);
     exit();
 }
 

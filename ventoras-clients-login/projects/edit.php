@@ -148,7 +148,7 @@ if ($someone_logged_in) {
 
 
                                     <div class="col-sm-6 col-md-4 col-lg-3 item">
-                                        <img class="img-fluid" src="<?php echo $PROJECT_IMAGES_LINK_BASE . $project_images_array[$i]; ?>">
+                                        <img class="img-fluid" src="<?php echo $PROJECT_IMAGES_LINK_BASE . $project_images_array[$i] . "?v=" . time(); ?>">
                                         <!-- <a href="?php echo $PROJECT_IMAGES_LINK_BASE . $project_images_array[$i]; ?>" data-lightbox="photos">
                                         </a> -->
                                         <br><br>
