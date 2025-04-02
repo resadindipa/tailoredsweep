@@ -84,11 +84,12 @@ $(document).ready(function() {
                     classString = "section-item-side-com-img-list-item section-item-side-com-img-list-item-after";
                 }
                 let beforeorAfterImagesDiv = container.find('.img-bna-' + g);
+                let timestamp = new Date().getTime();
                 var div = $('<div></div>')
                     .addClass(classString)
                     .css("display", "none")
                     // .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/image.php?domain=tailoredsweep.com&section=${BnASectionNumber}&pair=${i}&side=${g}')`)
-                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.webp')`)
+                    .css('background-image', `url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/${BnASectionNumber}/${i}/${g}.webp?v=${timestamp}')`)
                     .css('height', '100%');
 
                 // await new Promise(resolve => setTimeout(resolve, 1000));
