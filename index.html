@@ -215,6 +215,26 @@
     </div>
 
     <script>
+        function updateBackgroundImage(selector) {
+            let element = document.querySelector(selector);
+            if (element) {
+                let style = window.getComputedStyle(element);
+                let backgroundImage = style.backgroundImage;
+
+                let match = backgroundImage.match(/url\("(.*?)"\)/);
+                if (match) {
+                    let url = match[1];
+                    let timestamp = new Date().getTime();
+
+                    // Remove existing timestamp if present
+                    url = url.replace(/\?t=\d+/, "");
+
+                    let newUrl = url.includes("?") ? `${url}&t=${timestamp}` : `${url}?t=${timestamp}`;
+                    element.style.backgroundImage = `url('${newUrl}')`;
+                }
+            }
+        }
+
         updateBackgroundImage("#img-bna-2-1");
         updateBackgroundImage("#img-bna-2-2");
     </script>
@@ -401,6 +421,25 @@
                 </div>
                 <div class="col-lg-6">
 
+
+                    <div class="section-tab-side-comp-img">
+                        <div class="img-bna-div-container" data-total-pairs="4">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6 col-sm-6 section-item-side-comp-img-item section-item-side-comp-img-item-left section-item-side-com-img-list-item-before img-bna-div img-bna-1">
+                                    <div class="section-item-side-com-img-list-item" id="img-bna-1-1" style="background-image: url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/2/1/1.webp');">
+                                        <p class="img-bna-div-label">Before</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-6 col-sm-6 section-item-side-comp-img-item section-item-side-comp-img-item-right section-item-side-com-img-list-item-after img-bna-div img-bna-2">
+                                    <div class="section-item-side-com-img-list-item" id="img-bna-1-2" style="background-image: url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/2/1/2.webp');">
+                                        <p class="img-bna-div-label">After</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <script>
                         function updateBackgroundImage(selector) {
                             let element = document.querySelector(selector);
@@ -421,26 +460,7 @@
                                 }
                             }
                         }
-                    </script>
-                    <div class="section-tab-side-comp-img">
-                        <div class="img-bna-div-container" data-total-pairs="4">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-6 col-sm-6 section-item-side-comp-img-item section-item-side-comp-img-item-left section-item-side-com-img-list-item-before img-bna-div img-bna-1">
-                                    <div class="section-item-side-com-img-list-item" id="img-bna-1-1" style="background-image: url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/2/1/1.webp');">
-                                        <p class="img-bna-div-label">Before</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-6 col-sm-6 section-item-side-comp-img-item section-item-side-comp-img-item-right section-item-side-com-img-list-item-after img-bna-div img-bna-2">
-                                    <div class="section-item-side-com-img-list-item" id="img-bna-1-2" style="background-image: url('https://www.ventoras.com/ventoras-clients-login/uploads/beforeafter/tailoredsweep.com/2/1/2.webp');">
-                                        <p class="img-bna-div-label">After</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-
-                    <script>
                         updateBackgroundImage("#img-bna-1-1");
                         updateBackgroundImage("#img-bna-1-2");
                     </script>
