@@ -387,7 +387,7 @@ $(document).ready(function() {
     }
 
     sendPostReviewsRequest();
-    sendPostProjectsRequest();
+    // sendPostProjectsRequest();
 
     // Attach click event to all parent-div elements
     $('.parent-div').click(function() {

@@ -177,7 +177,7 @@ $current_sections_pairs_count = $LIMITED_NUM_OF_PAIRS_PER_SECTION;
                                         <div class="main-container-sub-header">
                                             <h2 class="main-container-sub-title">Pair - 0<?php echo $i; ?></h2>
                                         </div>
-
+                                        
                                         <div class="row photos">
                                             <div class="col-sm-6 col-md-4 col-lg-3 item">
                                                 <div>
