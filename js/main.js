@@ -444,16 +444,21 @@ $(document).ready(function() {
         let email = $("#emailaddress").val();
         let message = $('#message').val();
 
-        if (name == "" || phonenumber == "" && email == "" || message == "") {
-            $('#form-error').text('- Complete this field');
-            $('#form-error').show();
+        if (name == "" || phonenumber == "" || email == "" || message == "") {
             if (name == "") {
+                $('#form-error').text('Name should be Entered.');
                 $('#name').focus();
-            } else if (phonenumber == "" && email == "") {
-                $('#form-error').text('Either Email or Phone number should be entered.');
+            } else if (phonenumber == "") {
+                $('#form-error').text('Phone number should be Entered.');
+                $("#phonenumber").focus();
+            } else if (email == "") {
+                $('#form-error').text('Email Address should be Entered.');
+                $("#emailaddress").focus();
             } else {
+                $('#form-error').text('Message should be Entered.');
                 $('#message').focus();
             }
+            $('#form-error').show();
         } else {
 
             $("#submit-form").val("Sending....");

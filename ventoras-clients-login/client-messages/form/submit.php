@@ -18,7 +18,7 @@ require '../../PHPMailer-master/src/SMTP.php';
 // Check if the POST request contains the expected parameters
 if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'], $_POST['website'], $_POST['emailaddress'])) {
 
-    if (!($_POST['name'] == "" || $_POST['website'] == "" || $_POST['message'] == "" || $_POST['phonenumber'] == "" && $_POST['emailaddress'] == "")) {
+    if (!($_POST['name'] == "" || $_POST['website'] == "" || $_POST['message'] == "" || $_POST['phonenumber'] == "" || $_POST['emailaddress'] == "")) {
         // Sanitize and extract data
         $name = htmlspecialchars($_POST['name']);
         $phonenumber = htmlspecialchars($_POST['phonenumber']);
@@ -79,15 +79,15 @@ function sendEmail($email, $name, $phonenumber, $emailaddress, $message)
         $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Phone number:</b> ' . $phonenumber . '<br><b>Email address:</b> ' . $emailaddress . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';
     } 
     
-    //Phone number only
-    elseif($emailaddress == "" && $phonenumber != "") {
-        $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Phone number:</b> ' . $phonenumber . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';
-    } 
+    // //Phone number only
+    // elseif($emailaddress == "" && $phonenumber != "") {
+    //     $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Phone number:</b> ' . $phonenumber . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';
+    // } 
     
-    //Email address only
-    elseif($emailaddress != "" && $phonenumber == "") {
-        $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Email Address:</b> ' . $emailaddress . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';    
-    }
+    // //Email address only
+    // elseif($emailaddress != "" && $phonenumber == "") {
+    //     $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Email Address:</b> ' . $emailaddress . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';    
+    // }
 
 
     $mail->SMTPOptions = array(
