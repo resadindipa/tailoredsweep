@@ -441,16 +441,16 @@ $(document).ready(function() {
 
         let name = $('#name').val();
         let phonenumber = $('#phonenumber').val();
-
+        let email = $("#emailaddress").val();
         let message = $('#message').val();
 
-        if (name == "" || phonenumber == "" || message == "") {
-            $('#form-error').text('- Complete all the fields');
+        if (name == "" || phonenumber == "" && email == "" || message == "") {
+            $('#form-error').text('- Complete this field');
             $('#form-error').show();
             if (name == "") {
                 $('#name').focus();
-            } else if (phonenumber == "") {
-                $('#phonenumber').focus();
+            } else if (phonenumber == "" && email == "") {
+                $('#form-error').text('Either Email or Phone number should be entered.');
             } else {
                 $('#message').focus();
             }
@@ -462,6 +462,7 @@ $(document).ready(function() {
             $.post("https://www.ventoras.com/ventoras-clients-login/client-messages/form/submit.php", {
                     name: name,
                     phonenumber: phonenumber,
+                    emailaddress: email,
                     message: message,
                     website: "tailoredsweep.com"
                 },

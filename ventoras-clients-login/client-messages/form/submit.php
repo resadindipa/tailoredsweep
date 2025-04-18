@@ -16,38 +16,43 @@ require '../../PHPMailer-master/src/SMTP.php';
 // ini_set('display_errors', 1); // for the development PC only
 // error_reporting(E_ALL);
 // Check if the POST request contains the expected parameters
-if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'], $_POST['website'])) {
+if (isset($_POST['name'], $_POST['phonenumber'], $_POST['message'], $_POST['website'], $_POST['emailaddress'])) {
 
-    // Sanitize and extract data
-    $name = htmlspecialchars($_POST['name']);
-    $phonenumber = htmlspecialchars($_POST['phonenumber']);
-    $message = htmlspecialchars($_POST['message']);
-    $website = htmlspecialchars($_POST['website']);
+    if (!($_POST['name'] == "" || $_POST['website'] == "" || $_POST['message'] == "" || $_POST['phonenumber'] == "" && $_POST['emailaddress'] == "")) {
+        // Sanitize and extract data
+        $name = htmlspecialchars($_POST['name']);
+        $phonenumber = htmlspecialchars($_POST['phonenumber']);
+        $message = htmlspecialchars($_POST['message']);
+        $website = htmlspecialchars($_POST['website']);
+        $emailaddress = htmlspecialchars($_POST['emailaddress']);
 
-    include '../../php/config.php';
+
+        include '../../php/config.php';
 
 
-    // Fetch review details using prepared statements
-    $query = "SELECT email FROM users WHERE website = ?";
-    $stmt = mysqli_prepare($link, $query);
-    mysqli_stmt_bind_param($stmt, "s", $website);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+        // Fetch review details using prepared statements
+        $query = "SELECT email FROM users WHERE website = ?";
+        $stmt = mysqli_prepare($link, $query);
+        mysqli_stmt_bind_param($stmt, "s", $website);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-    if (mysqli_num_rows($result) > 0) {
-        if ($row = mysqli_fetch_assoc($result)) {
-            $user_email_address = $row['email'];
+        if (mysqli_num_rows($result) > 0) {
+            if ($row = mysqli_fetch_assoc($result)) {
+                $user_email_address = $row['email'];
 
-            sendEmail($user_email_address, $name, $phonenumber, $message);
+                sendEmail($user_email_address, $name, $phonenumber, $emailaddress, $message);
+            }
+        } else {
+            echo "error";
         }
     } else {
-        echo "error";
     }
 } else {
     echo 'Missing required parameters';
 }
 
-function sendEmail($email, $name, $phonenumber, $message)
+function sendEmail($email, $name, $phonenumber, $emailaddress, $message)
 {
     // $recipient_email = "mwresadindipa@gmail.com";
     $recipient_email = $email;
@@ -68,7 +73,21 @@ function sendEmail($email, $name, $phonenumber, $message)
 
     $mail->addAddress($recipient_email);
     $mail->Subject = 'New Message from your Website';
-    $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Phone number:</b> ' . $phonenumber . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';
+
+    //Both Email and phone number
+    if ($emailaddress != "" && $phonenumber != "") {
+        $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Phone number:</b> ' . $phonenumber . '<br><b>Email address:</b> ' . $emailaddress . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';
+    } 
+    
+    //Phone number only
+    elseif($emailaddress == "" && $phonenumber != "") {
+        $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Phone number:</b> ' . $phonenumber . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';
+    } 
+    
+    //Email address only
+    elseif($emailaddress != "" && $phonenumber == "") {
+        $mail->Body = "<html>Hello There,<br>You've received a new message from your website.<br><br><b>Name:</b> " . $name . '<br><b>Email Address:</b> ' . $emailaddress . '<br><b>Message:</b> ' . $message . '<br><br>Thank You,<br>Ventoras Clients Management</html>';    
+    }
 
 
     $mail->SMTPOptions = array(
